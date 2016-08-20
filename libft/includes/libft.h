@@ -6,7 +6,7 @@
 /*   By: pbourdon <pbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/13 08:38:32 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/18 18:16:53 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/08/20 01:50:01 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ int					ft_search_list(t_dlist *list, char *data);
 int					ft_list_size(t_node *head);
 t_dlist				*ins_avant(t_dlist *liste, char *data, t_node *courant,
 					int pos);
-void				ft_free_tab(char **tab);
+void				ft_free_tab(char **tab2);
 void				ft_display_tab(char **arg);
 int					ft_display_list(t_dlist *p_list);
 char				*ft_delete_tab(char *arg);

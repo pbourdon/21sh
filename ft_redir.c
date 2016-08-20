@@ -6,42 +6,46 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/18 17:31:18 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/20 02:04:26 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/08/20 01:20:07 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "21sh.h"
 #include "libft/includes/libft.h"
 
-
-int		voir_touche()
+void	redir(void)
 {
-	char     buffer[3];
-	while (1)
+	int		fd = -1;
+	pid_t	child = -1;
+	char	*filename = NULL;
+	char	*cmd = NULL;
+	char	*args[3];
+
+	filename = "./output.txt";
+
+	cmd = "/bin/ls";
+	args[0] = cmd;
+	args[1] = "-lF";
+	args[2] = NULL;
+
+	fd = open(filename, O_WRONLY | O_CREAT | O_TRUNC, 0644);
+	if (fd == -1)
 	{
-		read(0, buffer, 3);
-		if (buffer[0] == 27)
-			printf("C'est une fleche !\n");
-		else if (buffer[0] == 4)
-		{
-			printf("Ctlr+d, on quitte !\n");
-			return (0);
-		}
+		perror("error4 ");
 	}
-	return (0);
-}
+	child = fork();
+	if (child == -1)
+	{
+		close(fd);
+		perror("error6");
+	}
+	else if (child == 0)
+	{
+		dup2(fd, STDOUT_FILENO);
+		execve(cmd, args, NULL);
+		perror("error5");
+	}
+	close (fd);
+	wait(NULL);
 
-int		main(void)
-{
-	char				*name_term;
-	struct termios		term;
-
-	if ((name_term = getenv("TERM")) == NULL)
-		return (-1);
-	if (tgetent(term_buffer, name_term) == ERR)
-			return (-1);
-	if (tcgetattr(0, &term) == -1)
-		return (-1);
-	voir_touche();
-	return (0);
 }

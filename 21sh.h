@@ -6,13 +6,17 @@
 /*   By: pbourdon <pbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/04 13:03:36 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/18 17:51:18 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/08/20 02:02:31 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MINISHELL_H
 # define MINISHELL_H
-
+#ifdef unix
+static char term_buffer[2048];
+#else
+#define term_buffer 0
+#endif
 # include "stdlib.h"
 # include <unistd.h>
 # include <stdlib.h>
@@ -25,19 +29,16 @@
 # include <time.h>
 # include <stdio.h>
 # include <string.h>
+# include <sys/wait.h>
+# include <fcntl.h>
+# include <termios.h>
+# include <term.h>
+# include <curses.h>
+# include <termcap.h>
 
+void	redir(void);
+void	main_run_pipe(void);
+int		tgetent(char *bp, const char *name);
 
-typedef struct		s_node
-{
-	char			*data;
-	struct s_node	*p_next;
-	struct s_node	*p_prev;
-}					t_node;
-
-typedef struct		s_dlist
-{
-	struct s_node	*p_tail;
-	struct s_node	*p_head;
-}					t_dlist;
 
 #endif
