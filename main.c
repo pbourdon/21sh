@@ -6,7 +6,7 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/15 17:14:27 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/22 18:11:27 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/08/22 18:41:31 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int		main(void)
 	char		*line2;
 	t_dlist		*list;
 
-	ft_putstr("\n WELCOME ON MINISHELL2 BY PBOURDON \n");
+	ft_putstr("\n WELCOME ON SH2 BY PBOURDON \n");
 	list = NULL;
 	list = dlist_new(list);
 	list = ft_cpy_env(list);
@@ -40,7 +40,7 @@ int		main(void)
 	while (get_next_line(1, &line1, 0) == 1)
 	{
 		line2 = ft_delete_tab(line1);
-		list = ft_choose(line2, list);
+		list = ft_check_semicolon(line2, list);
 		free(line2);
 		free(line1);
 		if (list == NULL)

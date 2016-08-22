@@ -6,7 +6,7 @@
 #    By: pbourdon <pbourdon@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/07/04 13:03:16 by pbourdon          #+#    #+#              #
-#    Updated: 2016/08/22 18:10:21 by pbourdon         ###   ########.fr        #
+#    Updated: 2016/08/22 18:32:09 by pbourdon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,6 +49,7 @@ SRC =	main.c\
 		ft_run_unsetenv.c\
 		ft_show_prompt.c\
 		fuck_the_norm.c\
+		ft_check_semicolon.c\
 
 
 

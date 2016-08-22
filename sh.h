@@ -6,7 +6,7 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/22 17:27:56 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/22 18:06:32 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/08/22 18:31:56 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,5 +82,6 @@ int			ft_error_home2(char *tmp2);
 t_dlist		*ft_exchange_element2(t_dlist *line, char *oldpwd);
 t_dlist		*ft_exchange_element(t_dlist *list, char *test1, char *test2);
 int			ft_check_file(char *path);
+t_dlist		*ft_check_semicolon(char *arg, t_dlist *list);
 
 #endif
