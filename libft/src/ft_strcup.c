@@ -1,33 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_delete_list.c                                   :+:      :+:    :+:   */
+/*   ft_strcup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/07/27 18:27:56 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/22 18:10:02 by pbourdon         ###   ########.fr       */
+/*   Created: 2016/08/22 17:24:20 by pbourdon          #+#    #+#             */
+/*   Updated: 2016/08/22 17:24:35 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+
+
 #include "libft.h"
 
-void		ft_delete_list(t_dlist **p_list)
+char			*ft_strcup(char *arg)
 {
-	t_node		*p_temp;
-	t_node		*p_del;
+	int		index2;
+	int		index;
+	char	*str;
 
-	if (p_list != NULL)
+	index2 = 0;
+	index = 0;
+	str = malloc(sizeof(char) * ft_strlen(arg) + 1);
+	while (arg[index2] != '\0' && arg[index2] != ' ' && arg[index2] != '\t'
+		&& arg[index2] != '\n' && arg[index2] != '=')
 	{
-		p_temp = (*p_list)->p_head;
-		while (p_temp != NULL)
-		{
-			p_del = p_temp;
-			p_temp = p_temp->p_next;
-			free(p_del->data);
-			free(p_del);
-		}
-		free(*p_list);
-		*p_list = NULL;
+		str[index] = arg[index2];
+		index2++;
+		index++;
 	}
+	str[index] = '=';
+	index++;
+	str[index] = '\0';
+	return (str);
 }

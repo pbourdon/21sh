@@ -1,33 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_delete_list.c                                   :+:      :+:    :+:   */
+/*   ft_check_arg2.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/07/27 18:27:56 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/22 18:10:02 by pbourdon         ###   ########.fr       */
+/*   Created: 2016/08/18 14:59:09 by pbourdon          #+#    #+#             */
+/*   Updated: 2016/08/22 17:53:10 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "sh.h"
+#include "libft/includes/libft.h"
 
-void		ft_delete_list(t_dlist **p_list)
+int			ft_check_arg3(char *boucle, t_dlist *list, char **options)
 {
-	t_node		*p_temp;
-	t_node		*p_del;
+	char	*generated;
 
-	if (p_list != NULL)
+	if (boucle[0] != '.')
 	{
-		p_temp = (*p_list)->p_head;
-		while (p_temp != NULL)
-		{
-			p_del = p_temp;
-			p_temp = p_temp->p_next;
-			free(p_del->data);
-			free(p_del);
-		}
-		free(*p_list);
-		*p_list = NULL;
+		generated = ft_generate_path(boucle, list);
+		ft_run_exe(generated, options, list);
+		free(generated);
 	}
+	else
+		ft_run_exe(boucle, options, list);
+	ft_free_tab(options);
+	free(boucle);
+	return (1);
 }

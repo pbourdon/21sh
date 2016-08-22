@@ -1,35 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_delete_space.c                                  :+:      :+:    :+:   */
+/*   ft_run_unsetenv.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/07/20 19:51:27 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/22 18:03:02 by pbourdon         ###   ########.fr       */
+/*   Created: 2016/07/20 02:13:50 by pbourdon          #+#    #+#             */
+/*   Updated: 2016/08/22 18:06:55 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "sh.h"
+#include "libft/includes/libft.h"
 
-char		*ft_delete_space(char *arg)
+t_dlist			*ft_run_unsetenv(char *arg, t_dlist *list)
 {
 	int		index;
-	int		index2;
-	char	*str;
+	int		pos;
 
-	index2 = 0;
-	str = malloc(sizeof(char) * ft_strlen(arg));
-	index = 3;
-	while (arg[index] == ' ' || arg[index] == '\t' || arg[index] == '\r' ||
-		arg[index] == '\n')
+	index = 0;
+	while (arg[index] == '\t' || arg[index] == ' ' || arg[index] == '\n' ||
+			arg[index] == '\r')
 		index++;
-	while (arg[index] != '\0')
+	pos = ft_search_list(list, arg + index);
+	if (pos == 0)
 	{
-		str[index2] = arg[index];
-		index++;
-		index2++;
+		ft_putstr("Nothing to be done, this variable doesn't exist\n");
+		return (list);
 	}
-	str[index2] = '\0';
-	return (str);
+	list = ft_del_ele_list(list, pos, list->p_head, 1);
+	return (list);
 }

@@ -5,43 +5,47 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/08/18 17:31:18 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/20 02:04:26 by pbourdon         ###   ########.fr       */
+/*   Created: 2016/08/15 17:14:27 by pbourdon          #+#    #+#             */
+/*   Updated: 2016/08/22 18:11:27 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "21sh.h"
+#include "sh.h"
 #include "libft/includes/libft.h"
 
-
-int		voir_touche()
+void	get_first_sigint(void)
 {
-	char     buffer[3];
-	while (1)
-	{
-		read(0, buffer, 3);
-		if (buffer[0] == 27)
-			printf("C'est une fleche !\n");
-		else if (buffer[0] == 4)
-		{
-			printf("Ctlr+d, on quitte !\n");
-			return (0);
-		}
-	}
-	return (0);
+	write(1, "\n$#>", 4);
+}
+
+void	get_sigint(int signal)
+{
+	write(1, "\r\n##", 2);
+	signal = 3;
 }
 
 int		main(void)
 {
-	char				*name_term;
-	struct termios		term;
+	char		*line1;
+	char		*line2;
+	t_dlist		*list;
 
-	if ((name_term = getenv("TERM")) == NULL)
-		return (-1);
-	if (tgetent(term_buffer, name_term) == ERR)
-			return (-1);
-	if (tcgetattr(0, &term) == -1)
-		return (-1);
-	voir_touche();
+	ft_putstr("\n WELCOME ON MINISHELL2 BY PBOURDON \n");
+	list = NULL;
+	list = dlist_new(list);
+	list = ft_cpy_env(list);
+	if (ft_list_size(list->p_head) == 0)
+		list = ft_cpy_env2(list);
+	ft_putstr("$>");
+	while (get_next_line(1, &line1, 0) == 1)
+	{
+		line2 = ft_delete_tab(line1);
+		list = ft_choose(line2, list);
+		free(line2);
+		free(line1);
+		if (list == NULL)
+			return (0);
+		ft_show_prompt();
+	}
 	return (0);
 }

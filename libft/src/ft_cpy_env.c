@@ -6,11 +6,11 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/20 19:33:48 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/17 15:38:03 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/08/22 17:40:43 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "libft.h"
 
 t_dlist			*ft_cpy_env3(t_dlist *list)
 {

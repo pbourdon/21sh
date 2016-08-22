@@ -1,33 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_delete_list.c                                   :+:      :+:    :+:   */
+/*   ft_get_size.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/07/27 18:27:56 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/22 18:10:02 by pbourdon         ###   ########.fr       */
+/*   Created: 2016/08/15 15:59:31 by pbourdon          #+#    #+#             */
+/*   Updated: 2016/08/22 18:00:59 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "sh.h"
+#include "libft/includes/libft.h"
 
-void		ft_delete_list(t_dlist **p_list)
+int		ft_get_size(char *str)
 {
-	t_node		*p_temp;
-	t_node		*p_del;
+	int		index;
+	int		compteur;
 
-	if (p_list != NULL)
+	index = 1;
+	compteur = 2;
+	while (str[index] != '\0')
 	{
-		p_temp = (*p_list)->p_head;
-		while (p_temp != NULL)
-		{
-			p_del = p_temp;
-			p_temp = p_temp->p_next;
-			free(p_del->data);
-			free(p_del);
-		}
-		free(*p_list);
-		*p_list = NULL;
+		if ((str[index] == ' ' || str[index] == '\t' || str[index] == '\n') && (
+			str[index - 1] != ' ' || str[index - 1] != '\t' || str[index - 1]
+			!= '\n'))
+			compteur++;
+		index++;
 	}
+	return (compteur);
 }

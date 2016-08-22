@@ -1,35 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_delete_space.c                                  :+:      :+:    :+:   */
+/*   ft_get_path.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/07/20 19:51:27 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/22 18:03:02 by pbourdon         ###   ########.fr       */
+/*   Created: 2016/07/20 19:28:18 by pbourdon          #+#    #+#             */
+/*   Updated: 2016/08/22 18:00:45 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "sh.h"
+#include "libft/includes/libft.h"
 
-char		*ft_delete_space(char *arg)
+char		*ft_get_path(char *arg)
 {
 	int		index;
+	char	*tmp;
 	int		index2;
-	char	*str;
 
-	index2 = 0;
-	str = malloc(sizeof(char) * ft_strlen(arg));
 	index = 3;
-	while (arg[index] == ' ' || arg[index] == '\t' || arg[index] == '\r' ||
+	index2 = 0;
+	tmp = malloc(sizeof(char) * ft_strlen(arg));
+	while (arg[index] == '\t' || arg[index] == ' ' || arg[index] == '\r' ||
 		arg[index] == '\n')
 		index++;
-	while (arg[index] != '\0')
+	while (arg[index] != '\0' && arg[index] != ' ')
 	{
-		str[index2] = arg[index];
+		tmp[index2] = arg[index];
 		index++;
 		index2++;
 	}
-	str[index2] = '\0';
-	return (str);
+	tmp[index2] = '\0';
+	return (tmp);
 }

@@ -1,33 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_delete_list.c                                   :+:      :+:    :+:   */
+/*   ft_get_element.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/07/27 18:27:56 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/22 18:10:02 by pbourdon         ###   ########.fr       */
+/*   Created: 2016/08/15 18:39:12 by pbourdon          #+#    #+#             */
+/*   Updated: 2016/08/22 18:00:18 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "sh.h"
+#include "libft/includes/libft.h"
 
-void		ft_delete_list(t_dlist **p_list)
+char	*get_ele(t_dlist *liste, int pos)
 {
-	t_node		*p_temp;
-	t_node		*p_del;
+	int			i;
+	t_node		*courant;
 
-	if (p_list != NULL)
-	{
-		p_temp = (*p_list)->p_head;
-		while (p_temp != NULL)
-		{
-			p_del = p_temp;
-			p_temp = p_temp->p_next;
-			free(p_del->data);
-			free(p_del);
-		}
-		free(*p_list);
-		*p_list = NULL;
-	}
+	i = 1;
+	courant = liste->p_head;
+	while (i++ < pos)
+		courant = courant->p_next;
+	return (courant->data);
 }

@@ -6,11 +6,11 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/13 01:06:27 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/17 15:38:26 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/08/22 18:09:37 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "libft.h"
 
 t_dlist		*ft_fuck_norm(t_dlist *list, t_node *p_temp)
 {

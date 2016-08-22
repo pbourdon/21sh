@@ -1,33 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_delete_list.c                                   :+:      :+:    :+:   */
+/*   ft_give_path.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/07/27 18:27:56 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/22 18:10:02 by pbourdon         ###   ########.fr       */
+/*   Created: 2016/07/21 00:26:59 by pbourdon          #+#    #+#             */
+/*   Updated: 2016/08/22 18:01:25 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "sh.h"
+#include "libft/includes/libft.h"
 
-void		ft_delete_list(t_dlist **p_list)
+char	*ft_give_path(char *arg)
 {
-	t_node		*p_temp;
-	t_node		*p_del;
+	int		index;
 
-	if (p_list != NULL)
-	{
-		p_temp = (*p_list)->p_head;
-		while (p_temp != NULL)
-		{
-			p_del = p_temp;
-			p_temp = p_temp->p_next;
-			free(p_del->data);
-			free(p_del);
-		}
-		free(*p_list);
-		*p_list = NULL;
-	}
+	index = 0;
+	while (arg[index] != '\0' && arg[index] != ' ' && arg[index] != '\t'
+			&& arg[index] != '\n' && arg[index] != '\r')
+		index++;
+	return (ft_strcut(arg, index));
 }

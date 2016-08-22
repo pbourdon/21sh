@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_pipe.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/08/18 17:31:18 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/20 01:20:39 by pbourdon         ###   ########.fr       */
+/*   Created: 2016/08/22 17:44:16 by pbourdon          #+#    #+#             */
+/*   Updated: 2016/08/22 17:44:53 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "21sh.h"
+#include "sh.h"
 #include "libft/includes/libft.h"
 
-void	run_pipe(void)
+void	run_pipe(void	)
 {
 	int const READ_END = 0;
 	int const WRITE_END = 1;
@@ -56,7 +56,7 @@ void	run_pipe(void)
 
 void	main_run_pipe(void)
 {
-	pid_t		child = -1;
+	pid_t	child = -1;
 
 	child = fork();
 	if (child == -1)

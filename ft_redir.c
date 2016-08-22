@@ -6,11 +6,11 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/18 17:31:18 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/20 01:20:07 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/08/22 18:02:00 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "21sh.h"
+#include "sh.h"
 #include "libft/includes/libft.h"
 
 void	redir(void)
