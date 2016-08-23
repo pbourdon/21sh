@@ -6,7 +6,7 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/15 17:14:27 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/23 18:37:07 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/08/23 18:52:48 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,11 @@ int		main(void)
 	if (ft_list_size(list->p_head) == 0)
 		list = ft_cpy_env2(list);
 	ft_putstr("$>");
+	if (ft_tc() != 0)
+	{
+		ft_putstr(" ERRORS ON TERMCAPS ");
+		return (0);
+	}
 	while (get_next_line(1, &line1, 0) == 1)
 	{
 		line2 = ft_delete_tab(line1);

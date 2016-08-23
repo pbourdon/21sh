@@ -6,7 +6,7 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/23 16:18:18 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/23 18:40:17 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/08/23 18:50:07 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ int		voir_touche()
 	return (0);
 }
 
-int		main(void)
+int		ft_tc(void)
 {
 	char			*name_term;
 	struct termios	term;
@@ -83,6 +83,6 @@ int		main(void)
 	// On applique les changements :
 	if (tcsetattr(0, TCSADRAIN, &term) == -1)
 		return (-1);
-	voir_touche();
+//	voir_touche();
 	return (0);
 }

@@ -6,7 +6,7 @@
 #    By: pbourdon <pbourdon@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/07/04 13:03:16 by pbourdon          #+#    #+#              #
-#    Updated: 2016/08/23 16:46:42 by pbourdon         ###   ########.fr        #
+#    Updated: 2016/08/23 18:40:53 by pbourdon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,6 @@ LDFLAGS = -L $(LIBPATH) -lft
 SRC =	main.c\
 		ft_pipe.c\
 		ft_redir.c\
-		ft_touche.c\
 		ft_check_arg.c\
 		ft_check_arg3.c\
 		ft_check_file.c\
@@ -50,6 +49,7 @@ SRC =	main.c\
 		ft_show_prompt.c\
 		fuck_the_norm.c\
 		ft_check_semicolon.c\
+		ft_tc.c\
 
 
 

@@ -6,7 +6,7 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/22 17:27:56 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/22 18:31:56 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/08/23 18:41:02 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@ static char term_buffer[2048];
 void		redir(void);
 void		main_run_pipe(void);
 int			tgetent(char *bp, const char *name);
-int			ft_touche(void);
 void		get_first_signint(void);
 void		get_sigint(int signal);
 t_dlist		*nik_the_norm2(t_dlist *p_list, t_node *p_new, int i);
@@ -83,5 +82,6 @@ t_dlist		*ft_exchange_element2(t_dlist *line, char *oldpwd);
 t_dlist		*ft_exchange_element(t_dlist *list, char *test1, char *test2);
 int			ft_check_file(char *path);
 t_dlist		*ft_check_semicolon(char *arg, t_dlist *list);
+int			ft_tc(void);
 
 #endif
