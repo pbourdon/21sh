@@ -6,7 +6,7 @@
 #    By: pbourdon <pbourdon@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/07/04 13:03:16 by pbourdon          #+#    #+#              #
-#    Updated: 2016/08/22 18:32:09 by pbourdon         ###   ########.fr        #
+#    Updated: 2016/08/23 16:46:42 by pbourdon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ LIB = $(LIBPATH)/21sh.a
 
 NAME = 21sh
 
-CC = @gcc -ltermcap
+CC = @gcc -lncurses
 
 CFLAGS =
 
