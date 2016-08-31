@@ -1,26 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   dlist_new.c                                        :+:      :+:    :+:   */
+/*   ft_detect_ctrl.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/07/08 15:35:22 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/31 16:21:04 by pbourdon         ###   ########.fr       */
+/*   Created: 2016/08/31 14:51:01 by pbourdon          #+#    #+#             */
+/*   Updated: 2016/08/31 15:05:15 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "sh.h"
 
-t_dlist		*dlist_new(t_dlist *p_new)
+int		ft_detect_ctrl_d(char *buffer)
 {
-	p_new = malloc(sizeof(*p_new));
-	if (p_new != NULL)
-	{
-		p_new->length = 0;
-		p_new->pos = 0;
-		p_new->p_head = NULL;
-		p_new->p_tail = NULL;
-	}
-	return (p_new);
+	if (buffer[0] == 4)
+		return (1);
+	else
+		return (0);
 }

@@ -6,7 +6,7 @@
 #    By: pbourdon <pbourdon@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/07/04 13:04:26 by pbourdon          #+#    #+#              #
-#    Updated: 2016/08/22 18:32:17 by pbourdon         ###   ########.fr        #
+#    Updated: 2016/08/31 14:36:48 by pbourdon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -68,6 +68,7 @@ SRC		=	ft_atoi.c\
 			ft_cpy_env.c\
 			ft_del_ele_list.c\
 			ft_delete_list.c\
+			ft_putchar2.c\
 
 OBJ		=	$(SRC:.c=.o)
 	S		=	$(addprefix $(SDIR), $(SRC))

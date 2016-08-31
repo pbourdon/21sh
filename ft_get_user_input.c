@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   dlist_new.c                                        :+:      :+:    :+:   */
+/*   ft_get_user_input.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/07/08 15:35:22 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/31 16:21:04 by pbourdon         ###   ########.fr       */
+/*   Created: 2016/08/31 14:08:26 by pbourdon          #+#    #+#             */
+/*   Updated: 2016/08/31 15:09:22 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "sh.h"
 
-t_dlist		*dlist_new(t_dlist *p_new)
+void	ft_get_user_input(void)
 {
-	p_new = malloc(sizeof(*p_new));
-	if (p_new != NULL)
+	char		buffer[6];
+	t_dlist		*list;
+
+	list = NULL;
+	list = dlist_new(list);
+	while (42)
 	{
-		p_new->length = 0;
-		p_new->pos = 0;
-		p_new->p_head = NULL;
-		p_new->p_tail = NULL;
+		read(0, buffer, 6);
+		ft_putstr(buffer);
+		list = ft_deal_input(buffer, list);
 	}
-	return (p_new);
 }

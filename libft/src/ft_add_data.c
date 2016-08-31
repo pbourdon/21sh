@@ -6,7 +6,7 @@
 /*   By: pbourdon <pbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/22 18:46:12 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/18 18:16:49 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/08/31 16:20:23 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,5 +73,7 @@ t_dlist		*ft_add_data(t_dlist *p_list, char *data)
 {
 	if (p_list != NULL)
 		p_list = dlist_append(p_list, data);
+	p_list->pos = p_list->pos + 1;
+	p_list->length = p_list->length + 1;
 	return (p_list);
 }

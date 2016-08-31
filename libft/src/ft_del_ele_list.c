@@ -6,7 +6,7 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/13 01:06:27 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/22 18:09:37 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/08/31 16:20:55 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,14 +41,18 @@ t_dlist		*ft_del_ele_list(t_dlist *list, size_t p, t_node *p_temp, size_t i)
 		{
 			if (p == i)
 			{
-				if (p_temp->p_next == NULL)
+				if (p_temp->p_next == NULL && p_temp->p_prev != NULL)
 					list = ft_fuck_norm(list, p_temp);
-				else if (p_temp->p_prev == NULL)
+				else if (p_temp->p_prev == NULL && p_temp->p_next != NULL)
 					list = ft_fuck_norm2(list, p_temp);
-				else
+				else if (p_temp->p_prev != NULL && p_temp->p_next != NULL)
 					p_temp = ft_fuck_norm3(p_temp);
-				free(p_temp->data);
-				free(p_temp);
+				if (p_temp->data != NULL && p_temp != NULL && list->length > 0)
+				{
+					free(p_temp->data);
+					free(p_temp);
+					list->length = list->length - 1;
+				}
 			}
 			else
 			{

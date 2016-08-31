@@ -6,7 +6,7 @@
 /*   By: pbourdon <pbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/13 08:38:32 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/22 18:03:47 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/08/31 16:19:07 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ typedef struct		s_node
 typedef struct		s_dlist
 {
 	struct s_node	*p_tail;
+	int				pos;
+	int				length;
 	struct s_node	*p_head;
 }					t_dlist;
 
@@ -99,6 +101,7 @@ t_dlist				*ft_cpy_env(t_dlist *list);
 t_dlist				*ft_cpy_env2(t_dlist *list);
 t_dlist				*ft_cpy_env3(t_dlist *list);
 char				*ft_delete_space(char *arg);
+int					ft_putchar2(int c);
 
 
 #endif

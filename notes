@@ -1,5 +1,4 @@
 
-
 Refaire un gnl pour mettre chaque charactere dans une liste chainee. 
 Rajouter chaque charactere dans une liste et afficher le charactere au fur et a mesure
 Si tu tombes sur des characteres speciaux, tu fais les actions en consequence sur le shell
