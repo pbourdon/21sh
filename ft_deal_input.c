@@ -6,7 +6,7 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/31 14:11:20 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/31 17:40:38 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/08/31 18:01:22 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,19 @@ t_dlist		*ft_deal_input(char *buffer, t_dlist *list)
 
 t_dlist		*ft_deal_input2(char *buffer, t_dlist *list)
 {
+	char	test[2];
 	if (buffer[0] == 127)
 		return (ft_delete_on_shell(list));
 	if (buffer[0] == 10)
-		ft_putstr(" EXECUTION ");
-//	if (ft_detect_end(buffer) == 1)
+	{
+		ft_putchar('\n');
+		ft_display_list(list);
+		ft_delete_list(&list);
+		list = NULL;
+		list = dlist_new(list);
+		return (list);
+	}
+	//	if (ft_detect_end(buffer) == 1)
 //	{
 //	}
 //	else if (ft_detect_swift_end(buffer) == 1)
@@ -53,8 +61,9 @@ t_dlist		*ft_deal_input2(char *buffer, t_dlist *list)
 	//	ft_putchar(buffer[0]);
 	else
 	{
-		ft_putchar(buffer[0]);
-		list = ft_add_data(list, buffer);
+		test[0] = buffer[0];
+		test[1] = '\0';
+		return (ft_add_element(list, buffer));
 	}
 //	}
 	return (list);

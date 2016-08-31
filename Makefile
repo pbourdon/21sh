@@ -6,7 +6,7 @@
 #    By: pbourdon <pbourdon@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/07/04 13:03:16 by pbourdon          #+#    #+#              #
-#    Updated: 2016/08/31 16:41:10 by pbourdon         ###   ########.fr        #
+#    Updated: 2016/08/31 17:44:24 by pbourdon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,6 +30,7 @@ SRC =	main.c\
 		ft_deal_input.c\
 		ft_detect_ctrl.c\
 		ft_delete_on_shell.c\
+		ft_add_element.c\
 
 
 

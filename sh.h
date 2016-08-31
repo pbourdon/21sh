@@ -6,7 +6,7 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/22 17:27:56 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/31 16:41:30 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/08/31 17:44:43 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,4 +59,5 @@ t_dlist		*ft_down(t_dlist *list);
 t_dlist		*ft_delete_on_shell(t_dlist *list);
 int			ft_clear_n_char(int n);
 
+t_dlist		*ft_add_element(t_dlist *list, char *buffer);
 #endif

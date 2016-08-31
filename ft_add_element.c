@@ -1,33 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_delete_list.c                                   :+:      :+:    :+:   */
+/*   ft_add_element.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/07/27 18:27:56 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/31 18:00:21 by pbourdon         ###   ########.fr       */
+/*   Created: 2016/08/31 17:42:31 by pbourdon          #+#    #+#             */
+/*   Updated: 2016/08/31 17:48:08 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "sh.h"
 
-void		ft_delete_list(t_dlist **p_list)
+t_dlist		*ft_add_element(t_dlist *list, char *buffer)
 {
-	t_node		*p_temp;
-	t_node		*p_del;
-
-	if (p_list != NULL)
+//	ft_putstr(" THE CURRENT POS IN LINE IS ");
+//	ft_putnbr(list->pos);
+//	ft_putstr(" \n THE CURRENT LENGTH OS THE LINE IS ");
+//	ft_putnbr(list->length);
+	ft_putchar(buffer[0]);
+	if (list->pos == list->length)
+		return (ft_add_data(list, buffer));
+	else
 	{
-		p_temp = (*p_list)->p_head;
-		while (p_temp != NULL)
-		{
-			p_del = p_temp;
-			p_temp = p_temp->p_next;
-			free(p_del->data);
-			free(p_del);
-		}
-		free(*p_list);
-		*p_list = NULL;
+		return (ins_avant(list, buffer, list->p_head, list->pos));
 	}
+//	return (list);
 }
