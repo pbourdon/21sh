@@ -6,7 +6,7 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/31 14:11:20 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/31 16:37:41 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/08/31 16:48:53 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,19 +39,7 @@ t_dlist		*ft_deal_input(char *buffer, t_dlist *list)
 t_dlist		*ft_deal_input2(char *buffer, t_dlist *list)
 {
 	if (buffer[0] == 127)
-	{
-		ft_putstr(" \nTHE LINE BEFORE DELETING : ");
-		ft_display_list(list);
-		ft_putstr(" \nTHE CURRENT POS IN THE LINE : ");
-		ft_putnbr(list->pos);
-		list = ft_del_ele_list(list, list->pos, list->p_head, 1);
-		if (list->pos > 0)
-		{
-			list->pos = list->pos - 1;
-		}
-		ft_putstr(" \nTHE LINE AFTER DELETING : ");
-		ft_display_list(list);
-	}
+		return (ft_delete_on_shell(list));
 //	if (ft_detect_end(buffer) == 1)
 //	{
 //	}
@@ -62,8 +50,10 @@ t_dlist		*ft_deal_input2(char *buffer, t_dlist *list)
 //	{
 	//	ft_putchar(buffer[0]);
 	else
+	{
+		ft_putchar(buffer[0]);
 		list = ft_add_data(list, buffer);
+	}
 //	}
 	return (list);
-
 }

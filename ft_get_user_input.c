@@ -6,7 +6,7 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/31 14:08:26 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/31 15:09:22 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/08/31 16:51:01 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ void	ft_get_user_input(void)
 	while (42)
 	{
 		read(0, buffer, 6);
-		ft_putstr(buffer);
 		list = ft_deal_input(buffer, list);
 	}
 }
