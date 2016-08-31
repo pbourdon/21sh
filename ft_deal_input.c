@@ -6,7 +6,7 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/31 14:11:20 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/31 16:20:58 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/08/31 16:37:41 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ t_dlist		*ft_deal_input2(char *buffer, t_dlist *list)
 		ft_display_list(list);
 		ft_putstr(" \nTHE CURRENT POS IN THE LINE : ");
 		ft_putnbr(list->pos);
-		list = ft_del_ele_list(list, list->pos, list->p_head, 0);
+		list = ft_del_ele_list(list, list->pos, list->p_head, 1);
 		if (list->pos > 0)
 		{
 			list->pos = list->pos - 1;
