@@ -1,27 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_get_user_input.c                                :+:      :+:    :+:   */
+/*   ft_detect_end.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/08/31 14:08:26 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/09/01 15:03:08 by pbourdon         ###   ########.fr       */
+/*   Created: 2016/09/01 16:14:55 by pbourdon          #+#    #+#             */
+/*   Updated: 2016/09/01 16:17:41 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sh.h"
 
-void	ft_get_user_input(void)
+int		ft_detect_end(char *buf)
 {
-	char		buffer[6];
-	t_dlist		*list;
-
-	list = NULL;
-	list = dlist_new(list);
-	while (42)
-	{
-		read(0, buffer, 6);
-		list = ft_deal_input(buffer, list);
-	}
+	if (buf[0] == 27 && buf[1] == 91 && buf[2] == 70 &&
+		buf[3] == 0 && buf[4] == 0 && buf[5] == 0)
+		return (1);
+	return (0);
 }
+

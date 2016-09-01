@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_get_user_input.c                                :+:      :+:    :+:   */
+/*   ft_finish_command.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/08/31 14:08:26 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/09/01 15:03:08 by pbourdon         ###   ########.fr       */
+/*   Created: 2016/09/01 15:53:50 by pbourdon          #+#    #+#             */
+/*   Updated: 2016/09/01 16:21:03 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sh.h"
 
-void	ft_get_user_input(void)
+t_dlist		*ft_finish_command(t_dlist *list)
 {
-	char		buffer[6];
-	t_dlist		*list;
-
+	ft_putchar('\n');
+	ft_display_list(list);
+//	ft_run_commands(list);
+	// need to handle how to keep in historic this list
+	// to make tests, i free/recreate an empty list, but I need to modify that
+	ft_delete_list(&list);
 	list = NULL;
 	list = dlist_new(list);
-	while (42)
-	{
-		read(0, buffer, 6);
-		list = ft_deal_input(buffer, list);
-	}
+	return (list);
 }

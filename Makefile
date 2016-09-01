@@ -6,7 +6,7 @@
 #    By: pbourdon <pbourdon@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/07/04 13:03:16 by pbourdon          #+#    #+#              #
-#    Updated: 2016/08/31 17:44:24 by pbourdon         ###   ########.fr        #
+#    Updated: 2016/09/01 16:29:58 by pbourdon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,6 +31,11 @@ SRC =	main.c\
 		ft_detect_ctrl.c\
 		ft_delete_on_shell.c\
 		ft_add_element.c\
+		ft_finish_command.c\
+		ft_detect_end.c\
+		ft_move_end.c\
+		ft_detect_home.c\
+		ft_move_home.c\
 
 
 
