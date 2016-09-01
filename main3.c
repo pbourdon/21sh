@@ -1,27 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_get_user_input.c                                :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/08/31 14:08:26 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/09/01 15:01:52 by pbourdon         ###   ########.fr       */
+/*   Created: 2016/09/01 14:25:59 by pbourdon          #+#    #+#             */
+/*   Updated: 2016/09/01 14:57:02 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sh.h"
 
-void	ft_get_user_input(void)
+int		main(void)
 {
-	char		buffer[6];
 	t_dlist		*list;
 
 	list = NULL;
 	list = dlist_new(list);
-	while (42)
-	{
-		read(0, buffer, 6);
-		list = ft_deal_input(buffer, list);
-	}
+	list = ft_add_data(list, "1");
+	list = ft_add_data(list, "2");
+	list = ft_add_data(list, "4");
+	ft_display_list(list);
+	list = ins_avant(list, "3", list->p_head, 0);
+	ft_putchar('\n');
+	ft_display_list(list);
+	return (0);
 }

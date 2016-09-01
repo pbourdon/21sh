@@ -6,7 +6,7 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/31 14:35:11 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/31 16:18:49 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/09/01 14:19:41 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,12 @@ t_dlist		*ft_right(t_dlist *list)
 {
 	char	*res;
 
-	list->pos = list->pos + 1;
-	res = tgetstr("nd", NULL);
-	tputs(res, 0, ft_putchar2);
+	if (list->pos < list->length)
+	{
+		list->pos = list->pos + 1;
+		res = tgetstr("nd", NULL);
+		tputs(res, 0, ft_putchar2);
+	}
 	return (list);
 }
 
@@ -44,8 +47,11 @@ t_dlist		*ft_left(t_dlist *list)
 {
 	char	*res;
 
-	list->pos = list->pos - 1;
-	res = tgetstr("le", NULL);
-	tputs(res, 0, ft_putchar2);
+	if (list->pos > 0)
+	{
+		list->pos = list->pos - 1;
+		res = tgetstr("le", NULL);
+		tputs(res, 0, ft_putchar2);
+	}
 	return (list);
 }

@@ -6,7 +6,7 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/31 14:11:20 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/31 18:01:22 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/09/01 14:25:49 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,8 @@ t_dlist		*ft_deal_input2(char *buffer, t_dlist *list)
 	{
 		test[0] = buffer[0];
 		test[1] = '\0';
-		return (ft_add_element(list, buffer));
+		list = ft_add_element(list, test);
+		return (list);
 	}
 //	}
 	return (list);

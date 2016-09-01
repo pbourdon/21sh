@@ -6,7 +6,7 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/10 01:03:44 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/08/31 17:48:35 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/09/01 15:00:15 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,22 +31,27 @@ t_node		*fuck42(t_node *courant, char *data)
 t_dlist		*ins_avant(t_dlist *liste, char *data, t_node *courant, int pos)
 {
 	int			i;
+	t_node		*n;
 
+	if (pos < 1 || pos > liste->length)
+		return (liste);
 	i = 1;
-	while (courant != NULL && i <= pos)
+	courant = liste->p_head;
+	while (i++ < pos)
+		courant = courant->p_next;
+	n = malloc(sizeof(*n));
+	if (n != NULL)
 	{
-		if (pos == i)
-		{
-			if (courant->p_next == NULL)
-				liste = dlist_append(liste, data);
-			else if (courant->p_prev == NULL)
-				liste = dlist_prepend(liste, data);
-			else
-				courant = fuck42(courant, data);
-		}
+		n->data = ft_strdup(data);
+		n->p_prev = courant->p_prev;
+		n->p_next = courant;
+		if (courant->p_prev == NULL)
+			liste->p_head = n;
 		else
-			courant = courant->p_next;
-		i++;
+			courant->p_prev->p_next = n;
+		courant->p_prev = n;
+		liste->pos = liste->pos + 1;
+		liste->length = liste->length + 1;
 	}
 	return (liste);
 }
