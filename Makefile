@@ -6,7 +6,7 @@
 #    By: pbourdon <pbourdon@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/07/04 13:03:16 by pbourdon          #+#    #+#              #
-#    Updated: 2016/09/01 16:29:58 by pbourdon         ###   ########.fr        #
+#    Updated: 2016/09/01 16:35:51 by pbourdon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,6 +36,8 @@ SRC =	main.c\
 		ft_move_end.c\
 		ft_detect_home.c\
 		ft_move_home.c\
+		ft_detect_shift_home.c\
+		ft_move_shift_home.c\
 
 
 

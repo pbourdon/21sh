@@ -6,7 +6,7 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/22 17:27:56 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/09/01 16:30:00 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/09/01 16:37:25 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ int			ft_detect_up(char *buffer);
 int			ft_detect_ctrl_d(char *buffer);
 int			ft_detect_end(char *buffer);
 int			ft_detect_home(char *buffer);
+int			ft_detect_shift_home(char *buffer);
 
 t_dlist		*ft_left(t_dlist *list);
 t_dlist		*ft_right(t_dlist *list);
@@ -59,6 +60,7 @@ t_dlist		*ft_up(t_dlist *list);
 t_dlist		*ft_down(t_dlist *list);
 t_dlist		*ft_move_end(t_dlist *list);
 t_dlist		*ft_move_home(t_dlist *list);
+t_dlist		*ft_move_shift_home(t_dlist *list);
 
 t_dlist		*ft_delete_on_shell(t_dlist *list);
 int			ft_clear_n_char(int n);

@@ -6,7 +6,7 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/01 16:27:59 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/09/01 16:28:00 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/09/01 16:43:22 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@ t_dlist		*ft_deal_input2(char *buffer, t_dlist *list)
 		return (ft_move_end(list));
 	else if (ft_detect_home(buffer) == 1)
 		return (ft_move_home(list));
+	else if (ft_detect_shift_home(buffer) == 1)
+		return (ft_move_shift_home(list));
 	else
 		return (ft_add_element(list, buffer));
 	return (list);
