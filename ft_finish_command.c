@@ -6,7 +6,7 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/01 15:53:50 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/09/03 20:17:40 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/09/03 20:30:18 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,6 @@
 
 t_dlist		*ft_finish_command(t_dlist *list)
 {
-	t_dlist		*list2;
-
-	list2 = NULL;
-	list2 = dlist_new(list2);
-	list->next = list2->p_head;
-	list2->prev = list->p_head;
 	ft_putchar('\n');
 	ft_display_list(list);
 	ft_get_info_from_list(list);
