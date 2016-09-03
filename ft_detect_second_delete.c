@@ -1,22 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_detect_end.c                                    :+:      :+:    :+:   */
+/*   ft_detect_second_delete.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: pbourdon <pbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/09/01 16:14:55 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/09/03 17:13:42 by pbourdon         ###   ########.fr       */
+/*   Created: 2016/09/03 16:26:06 by pbourdon          #+#    #+#             */
+/*   Updated: 2016/09/03 16:32:13 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sh.h"
 
-int		ft_detect_end(char *buf)
+int		ft_detect_second_delete(char *buffer)
 {
-	if (buf[0] == 27 && buf[1] == 91 && buf[2] == 70 &&
-		buf[3] == 0 && buf[4] == 0 && buf[5] == 0)
+	if (buffer[0] == 27 && buffer[1] == 91 && buffer[2] == 51 &&
+		buffer[3] == 126 && buffer[4] == 0 && buffer[5] == 0)
 		return (1);
 	return (0);
 }
-

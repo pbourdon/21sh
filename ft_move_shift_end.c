@@ -1,22 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_detect_end.c                                    :+:      :+:    :+:   */
+/*   ft_move_shift_end.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: pbourdon <pbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/09/01 16:14:55 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/09/03 17:13:42 by pbourdon         ###   ########.fr       */
+/*   Created: 2016/09/03 17:15:34 by pbourdon          #+#    #+#             */
+/*   Updated: 2016/09/03 17:15:57 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sh.h"
 
-int		ft_detect_end(char *buf)
+t_dlist		*listft_move_shift_end(t_dlist *list)
 {
-	if (buf[0] == 27 && buf[1] == 91 && buf[2] == 70 &&
-		buf[3] == 0 && buf[4] == 0 && buf[5] == 0)
-		return (1);
-	return (0);
+	return (list);
 }
-
