@@ -6,7 +6,7 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/15 18:39:12 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/09/01 16:41:35 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/09/03 19:53:58 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_get_element_from_list(t_dlist *liste, int pos)
 
 	i = 1;
 	courant = liste->p_head;
-	while (i++ < pos)
+	while (i++ < pos && courant && i <= liste->length)
 		courant = courant->p_next;
 	return (courant->data);
 }
