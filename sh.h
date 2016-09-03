@@ -6,7 +6,7 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/22 17:27:56 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/09/03 19:30:44 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/09/03 20:22:44 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,8 @@ t_dlist		*ft_move_home(t_dlist *list);
 t_dlist		*ft_move_shift_home(t_dlist *list);
 t_dlist		*ft_move_shift_end(t_dlist *list);
 t_dlist		*ft_second_delete(t_dlist *list);
+
+t_dlist		*ft_previous_histo(t_dlist *list);
 
 t_dlist		*ft_delete_on_shell(t_dlist *list);
 int			ft_clear_n_char(int n);
