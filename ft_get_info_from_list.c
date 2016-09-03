@@ -6,7 +6,7 @@
 /*   By: pbourdon <pbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/03 19:25:43 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/09/03 19:35:05 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/09/03 20:14:19 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,7 @@ void		ft_get_info_from_list(t_dlist *list)
 		index++;
 		pos++;
 	}
-	ft_putstr(" The current elements of list is ");
-	ft_putstr(str);
-	ft_putchar('\n');
 	if (ft_strcmp("exit", str) == 0)
 		exit(EXIT_SUCCESS);
+	// need to send the str to the correct programm and then free it
 }

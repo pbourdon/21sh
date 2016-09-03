@@ -1,9 +1,4 @@
 
-Refaire un gnl pour mettre chaque charactere dans une liste chainee. 
-Rajouter chaque charactere dans une liste et afficher le charactere au fur et a mesure
-Si tu tombes sur des characteres speciaux, tu fais les actions en consequence sur le shell
-Genre fleche de gauche, tu reviens sur le maillon d'avant, tu le delete, tu bouges le curseur a cete endroit la de la ligne et tu affiches un charactere vide puis tu acceptes un nouveau caractere.
-
 
 
 DONE :
@@ -11,7 +6,7 @@ DONE :
 // Regler l'impossible modification d'une variable situee a la fin de la liste (auss// i au debut ?)
 Regler les erreurs d'analyse sur list_search (compare pas assez loin, et s'arrete a la premiere occurence complete, bizarre)
 Regler le segfault sur envoi de variables d'environnement vides (env -i ./minishell)
-
+Empecher le delete vers la gauche sur le premier charactere
 Regler le pbme de double free sur setenv (arrive je sais pas comment quand j'ai trifouille en correction)
 Gerer signaux
 
