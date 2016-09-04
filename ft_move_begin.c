@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_finish_command.c                                :+:      :+:    :+:   */
+/*   ft_clear_n_char.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/09/01 15:53:50 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/09/04 22:36:28 by pbourdon         ###   ########.fr       */
+/*   Created: 2016/08/31 14:39:19 by pbourdon          #+#    #+#             */
+/*   Updated: 2016/09/04 22:49:07 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sh.h"
 
-t_dlist		*ft_finish_command(t_dlist *list, t_dlist *histo)
+int		ft_move_begin(void)
 {
-	ft_putchar('\n');
-	ft_display_list(list);
-	ft_putchar('\n');
-	histo = ft_get_info_from_list(list, histo);
-//	ft_run_commands(list);
-	// need to handle how to keep in historic this list
-	// to make tests, i free/recreate an empty list, but I need to modify that
-	ft_delete_list(&list);
-	list = NULL;
-	list = dlist_new(list);
-	return (list);
+	char	*res;
+
+	if ((res = tgetstr("cr", NULL)) == NULL)
+		return (-1);
+	tputs(res, 0, ft_putchar2);
+	return (0);
 }
