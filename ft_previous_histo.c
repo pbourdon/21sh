@@ -6,15 +6,16 @@
 /*   By: pbourdon <pbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/03 20:23:00 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/09/05 00:08:07 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/09/05 00:20:11 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sh.h"
 
-t_dlist		*ft_previous_histo2(t_dlist *list, t_dlist *histo)
+t_dlist		*ft_previous_histo2(t_dlist *list, t_dlist *histo, char *str, int
+index)
 {
-	char	str[2];
+	char	str2[2];
 
 	if (histo->pos > 1)
 		histo->pos = histo->pos - 1;
@@ -32,22 +33,17 @@ t_dlist		*ft_previous_histo2(t_dlist *list, t_dlist *histo)
 		index++;
 	}
 	ft_display_list(list);
+	return (list);
 }
 
 t_dlist		*ft_previous_histo(t_dlist *list, t_dlist *histo)
 {
 	char	*str;
-	int		index;
-	int		total;
 
 	str = ft_get_str_from_list(list);
-	total = ft_strlen(str);
 	if (str != NULL)
 		free(str);
-	index = 0;
 	if (histo->pos > 0)
-	{
-		ft_previous_histo2(list, histo);
-	}
+		return (ft_previous_histo2(list, histo, str, 0));
 	return (list);
 }
