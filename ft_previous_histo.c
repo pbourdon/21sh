@@ -6,7 +6,7 @@
 /*   By: pbourdon <pbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/03 20:23:00 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/09/04 22:49:18 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/09/04 23:56:25 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,10 @@ t_dlist		*ft_previous_histo(t_dlist *list, t_dlist *histo)
 
 	total = ft_strlen(ft_get_str_from_list(list));
 	index = 0;
-	if (histo->pos != 0)
+	if (histo->pos > 0)
 	{
+		if (histo->pos > 1)
+			histo->pos = histo->pos - 1;
 		ft_move_begin();
 		ft_clear_line();
 		ft_delete_list(&list);
@@ -37,8 +39,6 @@ t_dlist		*ft_previous_histo(t_dlist *list, t_dlist *histo)
 			index++;
 		}
 		ft_display_list(list);
-		free(str);
-		histo->pos = histo->pos - 1;
 	}
 	return (list);
 }

@@ -1,23 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_clear_n_char.c                                  :+:      :+:    :+:   */
+/*   ft_display_list.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/08/31 14:39:19 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/09/04 22:50:50 by pbourdon         ###   ########.fr       */
+/*   Created: 2016/07/08 15:13:06 by pbourdon          #+#    #+#             */
+/*   Updated: 2016/09/04 23:42:17 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "sh.h"
+#include "libft.h"
 
-int		ft_move_begin(void)
+void	ft_display_list2(t_dlist *p_list)
 {
-	char	*res;
+	t_node		*p_temp;
 
-	if ((res = tgetstr("cr", NULL)) == NULL)
-		return (-1);
-	tputs(res, 0, ft_putchar2);
-	return (0);
+	p_temp = p_list->p_head;
+	if (p_list != NULL)
+	{
+		while (p_temp != NULL)
+		{
+			if (p_temp->data != NULL)
+			{
+				ft_putstr(p_temp->data);
+				ft_putchar('\n');
+			}
+			p_temp = p_temp->p_next;
+		}
+	}
 }
