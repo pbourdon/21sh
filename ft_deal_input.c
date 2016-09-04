@@ -6,13 +6,13 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/01 16:27:59 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/09/03 20:24:09 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/09/04 21:55:04 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sh.h"
 
-t_dlist		*ft_deal_input(char *buffer, t_dlist *list)
+t_dlist		*ft_deal_input(char *buffer, t_dlist *list, t_dlist *histo)
 {
 	/*
 	
@@ -41,23 +41,23 @@ t_dlist		*ft_deal_input(char *buffer, t_dlist *list)
 	else if (ft_detect_up(buffer) == 1)
 	{
 		// read the previous entry of historic
-		return (ft_previous_histo(list));
+		return (ft_previous_histo(list, histo));
 	}
-//	else if (ft_detect_down(buffer) == 1)
-//	{
+	else if (ft_detect_down(buffer) == 1)
+	{
 		// read the following entry of historic
-//		return (ft_down(list));
-//	}
+		return (ft_next_histo(list, histo));
+	}
 	else
-		return (ft_deal_input2(buffer, list));
+		return (ft_deal_input2(buffer, list, histo));
 }
 
-t_dlist		*ft_deal_input2(char *buffer, t_dlist *list)
+t_dlist		*ft_deal_input2(char *buffer, t_dlist *list, t_dlist *histo)
 {
 	if (buffer[0] == 127) // delete button
 		return (ft_delete_on_shell(list));
 	else if (buffer[0] == 10) // enter button
-		return (ft_finish_command(list));
+		return (ft_finish_command(list, histo));
 	else if (ft_detect_end(buffer) == 1)
 		return (ft_move_end(list));
 	else if (ft_detect_home(buffer) == 1)

@@ -6,7 +6,7 @@
 /*   By: pbourdon <pbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/13 08:38:32 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/09/03 20:30:02 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/09/04 21:16:51 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,6 +102,7 @@ t_dlist				*ft_cpy_env3(t_dlist *list);
 char				*ft_delete_space(char *arg);
 int					ft_putchar2(int c);
 char				*ft_get_element_from_list(t_dlist *list, int pos);
+char				*ft_get_str_from_list(t_dlist *list);
 
 
 #endif

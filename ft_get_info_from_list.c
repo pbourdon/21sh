@@ -6,28 +6,20 @@
 /*   By: pbourdon <pbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/03 19:25:43 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/09/03 20:14:19 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/09/04 21:36:18 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sh.h"
 
-void		ft_get_info_from_list(t_dlist *list)
+t_dlist		*ft_get_info_from_list(t_dlist *list, t_dlist *histo)
 {
-	int		pos;
 	char	*str;
-	int		index;
 
-	pos = 1;
-	index = 0;
-	str = ft_strnew(list->length);
-	while (pos <= list->length)
-	{
-		str[index] = ft_get_element_from_list(list, pos)[0];
-		index++;
-		pos++;
-	}
+	str = ft_get_str_from_list(list);
+	histo = ft_add_data(histo, str);
 	if (ft_strcmp("exit", str) == 0)
-		exit(EXIT_SUCCESS);
+		return (histo);
+	return (histo);
 	// need to send the str to the correct programm and then free it
 }

@@ -1,33 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_delete_list.c                                   :+:      :+:    :+:   */
+/*   ft_get_str_from_list.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/07/27 18:27:56 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/09/04 21:04:50 by pbourdon         ###   ########.fr       */
+/*   Created: 2016/09/04 21:17:25 by pbourdon          #+#    #+#             */
+/*   Updated: 2016/09/04 21:35:37 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void		ft_delete_list(t_dlist **p_list)
+char		*ft_get_str_from_list(t_dlist *list)
 {
-	t_node		*p_temp;
-	t_node		*p_del;
+	int		index;
+	int		pos;
+	char	*str;
 
-	if (p_list != NULL)
+	pos = 1;
+	index = 0;
+	str = ft_strnew(list->length);
+	while (pos <= list->length)
 	{
-		p_temp = (*p_list)->p_head;
-		while (p_temp != NULL)
-		{
-			p_del = p_temp;
-			p_temp = p_temp->p_next;
-			free(p_del->data);
-			free(p_del);
-		}
-		free(*p_list);
-		*p_list = NULL;
+		str[index] = ft_get_element_from_list(list, pos)[0];
+		index++;
+		pos++;
 	}
+	return (str);
 }

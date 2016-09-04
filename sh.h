@@ -6,7 +6,7 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/22 17:27:56 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/09/03 20:22:44 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/09/04 21:54:31 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,8 @@ static char term_buffer[2048];
 
 int			ft_tc(void);
 void		ft_get_user_input(void);
-t_dlist		*ft_deal_input(char *buffer, t_dlist *list);
-t_dlist		*ft_deal_input2(char *buffer, t_dlist *list);
+t_dlist		*ft_deal_input(char *buffer, t_dlist *list, t_dlist *histo);
+t_dlist		*ft_deal_input2(char *buffer, t_dlist *list, t_dlist *histo);
 
 int			ft_detect_right(char *buffer);
 int			ft_detect_down(char *buffer);
@@ -56,7 +56,7 @@ int			ft_detect_shift_home(char *buffer);
 int			ft_detect_shift_end(char *buffer);
 int			ft_detect_second_delete(char *buffer);
 
-void		ft_get_info_from_list(t_dlist *list);
+t_dlist		*ft_get_info_from_list(t_dlist *list, t_dlist *histo);
 
 t_dlist		*ft_left(t_dlist *list);
 t_dlist		*ft_right(t_dlist *list);
@@ -68,12 +68,13 @@ t_dlist		*ft_move_shift_home(t_dlist *list);
 t_dlist		*ft_move_shift_end(t_dlist *list);
 t_dlist		*ft_second_delete(t_dlist *list);
 
-t_dlist		*ft_previous_histo(t_dlist *list);
+t_dlist		*ft_previous_histo(t_dlist *list, t_dlist *histo);
+t_dlist		*ft_next_histo(t_dlist *list, t_dlist *histo);
 
 t_dlist		*ft_delete_on_shell(t_dlist *list);
 int			ft_clear_n_char(int n);
 
-t_dlist		*ft_finish_command(t_dlist *list);
+t_dlist		*ft_finish_command(t_dlist *list, t_dlist *histo);
 
 t_dlist		*ft_add_element(t_dlist *list, char *buffer);
 #endif

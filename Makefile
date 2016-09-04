@@ -6,7 +6,7 @@
 #    By: pbourdon <pbourdon@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/07/04 13:03:16 by pbourdon          #+#    #+#              #
-#    Updated: 2016/09/03 20:22:52 by pbourdon         ###   ########.fr        #
+#    Updated: 2016/09/04 21:07:59 by pbourdon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,6 +44,7 @@ SRC =	main.c\
 		ft_move_shift_end.c\
 		ft_get_info_from_list.c\
 		ft_previous_histo.c\
+		ft_next_histo.c\
 
 
 OBJ = $(SRC:.c=.o)
