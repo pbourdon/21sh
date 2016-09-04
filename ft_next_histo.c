@@ -6,7 +6,7 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/04 22:51:17 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/09/04 23:56:48 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/09/05 00:06:22 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,9 @@ t_dlist		*ft_next_histo(t_dlist *list, t_dlist *histo)
 	char	str2[2];
 	int		total;
 
-	total = ft_strlen(ft_get_str_from_list(list));
+	str = ft_get_str_from_list(list);
+	total = ft_strlen(str);
+	free(str);
 	index = 0;
 	if (histo->pos > 0 && histo->pos <= histo->length)
 	{
