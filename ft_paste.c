@@ -6,21 +6,16 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/05 02:34:32 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/09/05 17:20:21 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/09/05 20:01:56 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sh.h"
 
-t_dlist		*ft_paste(t_dlist *list, t_dlist *to_paste)
+t_dlist		*ft_paste(t_dlist *list, t_dlist *to_paste, int index, char *str)
 {
-	char	*str;
-	int		index;
 	char	str2[2];
-//	char	*test;
 
-//	test = ft_get_str_from_list(list);
-	index = 0;
 	str = ft_get_str_from_list(to_paste);
 	while (str[index] != '\0')
 	{
@@ -41,5 +36,6 @@ t_dlist		*ft_paste(t_dlist *list, t_dlist *to_paste)
 		tputs(tgetstr("le", NULL), 0, ft_putchar2);
 		index++;
 	}
+	free(str);
 	return (list);
 }

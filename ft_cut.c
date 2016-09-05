@@ -6,23 +6,44 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/05 01:33:19 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/09/05 17:25:27 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/09/05 19:57:12 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sh.h"
 
-t_dlist		*ft_cut(t_dlist *list, t_dlist *to_paste)
+void		ft_cut2(t_dlist *list, char *str, t_dlist *to_paste)
 {
-	char	*buffer;
+	str[0] = ft_get_element_from_list(list, list->pos + 1)[0];
+	str[1] = '\0';
+	to_paste = ft_add_data(to_paste, str);
+	ft_right(list);
+}
+
+t_dlist		*ft_cut3(t_dlist *list, int *tab2, int index, char *buffer)
+{
+	index--;
+	while (index >= 0)
+	{
+		ft_del_ele_list(list, tab2[index], list->p_head, 1);
+		index--;
+	}
+	ft_move_begin();
+	ft_clear_line();
+	ft_display_list(list);
+	free(buffer);
+	free(tab2);
+	return (list);
+}
+
+t_dlist		*ft_cut(t_dlist *list, t_dlist *to_paste, int index, char *buffer)
+{
 	char	str[2];
 	int		*tab2;
-	int		index;
 
-	index = 0;
 	tab2 = malloc(sizeof(int) * ft_list_size(list->p_head));
 	if (to_paste->length > 0)
-		ft_delete_list(&to_paste);
+		ft_delete_list2(&to_paste);
 	buffer = malloc(sizeof(char) * 7);
 	while (42)
 	{
@@ -30,35 +51,12 @@ t_dlist		*ft_cut(t_dlist *list, t_dlist *to_paste)
 		read(0, buffer, 6);
 		if (ft_detect_right(buffer) == 1 && list->pos < list->length)
 		{
-			//	tputs(tgetstr("so", NULL), 0, ft_putchar2);
-			// surligner le charactere actuel qu'on vient de rentrer dans la copy
 			tab2[index] = list->pos + 1;
 			index++;
-			str[0] = ft_get_element_from_list(list, list->pos + 1)[0];
-			str[1] = '\0';
-			to_paste = ft_add_data(to_paste, str);
-			ft_right(list);
+			ft_cut2(list, str, to_paste);
 		}
 		if (buffer[0] == 10)
-		{
-			index--;
-			while (index >= 0)
-			{
-				ft_del_ele_list(list, tab2[index], list->p_head, 1);
-				index--;
-			}
-			ft_move_begin();
-			ft_clear_line();
-			ft_display_list(list);
-			free(buffer);
-			free(tab2);
-	/*		ft_putstr(" the current list->pos ");
-			ft_putnbr(list->pos);
-			ft_putstr(" the current length ");
-			ft_putnbr(list->length);
-			*/
-			return (list);
-		}
+			return (ft_cut3(list, tab2, index, buffer));
 	}
 	free(tab2);
 	free(buffer);

@@ -4,6 +4,13 @@ WD			  AWDDDDDDDDDDDDDDDDDDDDDDDDD
 
 Fixer le probleme de padding, le ft_left empeche d'aller totalement a gauche, regler cela
 
+Probleme sur home end apres coupe/collage
+Probleme sur home/end avec les tabulations et tout, a voir.
+
+Probleme sur la gestion de plusieurs lignes + gerer les copies/collages en meme temps (le clear line se fait sur qu'une seule ligne du coup la ligne d'avant reste et c'est degueu)
+
+////////////////////////////////////////////////////////////////////////////////////
+
 // Gerer le fait d'envoyer une variable vide via setenv
 // Regler l'impossible modification d'une variable situee a la fin de la liste (auss// i au debut ?)
 Regler les erreurs d'analyse sur list_search (compare pas assez loin, et s'arrete a la premiere occurence complete, bizarre)

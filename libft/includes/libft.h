@@ -6,7 +6,7 @@
 /*   By: pbourdon <pbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/13 08:38:32 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/09/05 01:28:53 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/09/05 19:56:25 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,7 @@ void				ft_display_tab(char **arg);
 int					ft_display_list(t_dlist *p_list);
 char				*ft_delete_tab(char *arg);
 void				ft_delete_list(t_dlist **p_list);
+void				ft_delete_list2(t_dlist **p_list);
 t_dlist				*ft_del_ele_list(t_dlist *list, size_t p, t_node *p_temp,
 					size_t i);
 t_dlist				*ft_cpy_env(t_dlist *list);
