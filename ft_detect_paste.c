@@ -6,7 +6,7 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/05 00:44:16 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/09/05 00:45:30 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/09/05 16:25:41 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int		ft_detect_paste(char *buffer)
 {
-	if (buffer[0] == -30 && buffer[1] == -120 && buffer[2] == -102 &&
+	if (buffer[0] == -49 && buffer[1] == -128 && buffer[2] == 0 &&
 		buffer[3] == 0 && buffer[4] == 0 && buffer[5] == 0)
 		return (1);
 	return (0);

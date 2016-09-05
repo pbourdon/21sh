@@ -6,7 +6,7 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/05 01:33:19 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/09/05 02:40:08 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/09/05 16:44:36 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,6 @@ t_dlist		*ft_copy(t_dlist *list, t_dlist *to_paste)
 
 	if (to_paste->length > 0)
 		ft_delete_list(&to_paste);
-	to_paste = NULL;
-	to_paste = dlist_new(to_paste);
-	to_paste->pos = 1;
 	buffer = malloc(sizeof(char) * 7);
 	while (42)
 	{
@@ -33,13 +30,11 @@ t_dlist		*ft_copy(t_dlist *list, t_dlist *to_paste)
 			// surligner le charactere actuel qu'on vient de rentrer dans la copy
 			str[0] = ft_get_element_from_list(list, list->pos + 1)[0];
 			str[1] = '\0';
-			ft_add_data(to_paste, str);
+			to_paste = ft_add_data(to_paste, str);
 			ft_right(list);
 		}
 		if (buffer[0] == 10)
 		{
-	//		ft_putstr(" \n the current copy is ");
-	//		ft_display_list(to_paste);
 			free(buffer);
 			return (list);
 		}

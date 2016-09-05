@@ -6,7 +6,7 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/05 01:33:19 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/09/05 02:39:58 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/09/05 16:56:58 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,6 @@ t_dlist		*ft_cut(t_dlist *list, t_dlist *to_paste)
 	tab2 = malloc(sizeof(int) * ft_list_size(list->p_head));
 	if (to_paste->length > 0)
 		ft_delete_list(&to_paste);
-	to_paste = NULL;
-	to_paste = dlist_new(to_paste);
-	to_paste->pos = 1;
 	buffer = malloc(sizeof(char) * 7);
 	while (42)
 	{
