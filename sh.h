@@ -6,7 +6,7 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/22 17:27:56 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/09/05 02:19:30 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/09/05 02:34:19 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ int			ft_move_begin(void);
 
 t_dlist		*ft_copy(t_dlist *list, t_dlist *to_paste);
 t_dlist		*ft_cut(t_dlist *list, t_dlist *to_paste);
-
+t_dlist		*ft_paste(t_dlist *list, t_dlist *to_paste);
 
 t_dlist		*ft_previous_histo(t_dlist *list, t_dlist *histo);
 t_dlist		*ft_next_histo(t_dlist *list, t_dlist *histo);

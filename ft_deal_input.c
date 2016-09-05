@@ -6,7 +6,7 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/01 16:27:59 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/09/05 02:22:39 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/09/05 02:46:59 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,15 +68,13 @@ t_dlist		*ft_deal_input2(char *buffer, t_dlist *list, t_dlist *histo,
 	else if (ft_detect_shift_end(buffer) == 1)
 		return (ft_move_shift_end(list));
 	else if (ft_detect_copy(buffer) == 1)
-	{
 		return (ft_copy(list, to_paste));
-	}
 	else if (ft_detect_cut(buffer) == 1)
-	{
 		return (ft_cut(list, to_paste));
-	}
 	else if (ft_detect_paste(buffer) == 1)
 	{
+		ft_putstr(" HERE ");
+		return (ft_paste(list, to_paste));
 	}
 	else
 		return (ft_add_element(list, buffer));

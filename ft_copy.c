@@ -6,7 +6,7 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/05 01:33:19 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/09/05 02:17:19 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/09/05 02:40:08 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@ t_dlist		*ft_copy(t_dlist *list, t_dlist *to_paste)
 		}
 		if (buffer[0] == 10)
 		{
-			ft_putstr(" \n the current copy is ");
-			ft_display_list(to_paste);
+	//		ft_putstr(" \n the current copy is ");
+	//		ft_display_list(to_paste);
 			free(buffer);
 			return (list);
 		}
