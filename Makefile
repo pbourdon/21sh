@@ -6,7 +6,7 @@
 #    By: pbourdon <pbourdon@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/07/04 13:03:16 by pbourdon          #+#    #+#              #
-#    Updated: 2016/09/04 22:46:11 by pbourdon         ###   ########.fr        #
+#    Updated: 2016/09/05 02:17:57 by pbourdon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,6 +47,11 @@ SRC =	main.c\
 		ft_next_histo.c\
 		ft_clear_line.c\
 		ft_move_begin.c\
+		ft_detect_copy.c\
+		ft_detect_cut.c\
+		ft_detect_paste.c\
+		ft_copy.c\
+		ft_cut.c\
 
 
 OBJ = $(SRC:.c=.o)

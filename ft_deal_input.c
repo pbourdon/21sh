@@ -6,16 +6,16 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/01 16:27:59 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/09/04 21:55:04 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/09/05 02:22:39 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sh.h"
 
-t_dlist		*ft_deal_input(char *buffer, t_dlist *list, t_dlist *histo)
+t_dlist		*ft_deal_input(char *buffer, t_dlist *list, t_dlist *histo,
+			t_dlist *to_paste)
 {
 	/*
-	
 	ft_putchar('\n');
 	ft_putnbr(buffer[0]);
 	ft_putchar(' ');
@@ -29,7 +29,7 @@ t_dlist		*ft_deal_input(char *buffer, t_dlist *list, t_dlist *histo)
 	ft_putchar(' ');
 	ft_putnbr(buffer[5]);
 	ft_putchar(' ');
-*/	
+*/
 	if (ft_detect_second_delete(buffer) == 1)
 		return (ft_second_delete(list));
 	if (ft_detect_ctrl_d(buffer) == 1)
@@ -49,10 +49,11 @@ t_dlist		*ft_deal_input(char *buffer, t_dlist *list, t_dlist *histo)
 		return (ft_next_histo(list, histo));
 	}
 	else
-		return (ft_deal_input2(buffer, list, histo));
+		return (ft_deal_input2(buffer, list, histo, to_paste));
 }
 
-t_dlist		*ft_deal_input2(char *buffer, t_dlist *list, t_dlist *histo)
+t_dlist		*ft_deal_input2(char *buffer, t_dlist *list, t_dlist *histo,
+			t_dlist *to_paste)
 {
 	if (buffer[0] == 127) // delete button
 		return (ft_delete_on_shell(list));
@@ -66,6 +67,17 @@ t_dlist		*ft_deal_input2(char *buffer, t_dlist *list, t_dlist *histo)
 		return (ft_move_shift_home(list));
 	else if (ft_detect_shift_end(buffer) == 1)
 		return (ft_move_shift_end(list));
+	else if (ft_detect_copy(buffer) == 1)
+	{
+		return (ft_copy(list, to_paste));
+	}
+	else if (ft_detect_cut(buffer) == 1)
+	{
+		return (ft_cut(list, to_paste));
+	}
+	else if (ft_detect_paste(buffer) == 1)
+	{
+	}
 	else
 		return (ft_add_element(list, buffer));
 	return (list);

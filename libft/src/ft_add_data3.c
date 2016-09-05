@@ -1,25 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_get_element.c                                   :+:      :+:    :+:   */
+/*   ft_add_data.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: pbourdon <pbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/08/15 18:39:12 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/09/05 02:20:35 by pbourdon         ###   ########.fr       */
+/*   Created: 2016/06/22 18:46:12 by pbourdon          #+#    #+#             */
+/*   Updated: 2016/09/05 01:30:07 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_get_element_from_list(t_dlist *liste, int pos)
+t_dlist		*ft_add_data3(t_dlist *p_list, char *data)
 {
-	int			i;
-	t_node		*courant;
-
-	i = 1;
-	courant = liste->p_head;
-	while (i++ < pos && courant && i <= liste->length)
-		courant = courant->p_next;
-	return (courant->data);
+	if (p_list != NULL)
+		p_list = dlist_append(p_list, data);
+	p_list->pos = 1; // means it's a copy
+	p_list->length = p_list->length + 1;
+	return (p_list);
 }

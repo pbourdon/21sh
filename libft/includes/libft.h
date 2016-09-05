@@ -6,7 +6,7 @@
 /*   By: pbourdon <pbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/13 08:38:32 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/09/04 23:54:37 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/09/05 01:28:53 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,7 @@ t_dlist				*dlist_prepend(t_dlist *p_list, char *data);
 t_dlist				*dlist_append(t_dlist *p_list, char *data);
 t_dlist				*ft_add_data(t_dlist *p_list, char *data);
 t_dlist				*ft_add_data2(t_dlist *p_list, char *data);
+t_dlist				*ft_add_data3(t_dlist *p_list, char *data);
 t_dlist				*nik_the_norm2(t_dlist *p_list, t_node *p_new, int i);
 t_dlist				*nik_the_norm3(t_dlist *p_list, t_node *p_new, int i);
 char				*ft_strcup(char *arg);
