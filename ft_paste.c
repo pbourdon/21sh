@@ -6,7 +6,7 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/05 02:34:32 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/09/05 17:18:50 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/09/05 17:20:21 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,6 @@ t_dlist		*ft_paste(t_dlist *list, t_dlist *to_paste)
 		index++;
 	}
 	index = 0;
-	ft_putstr(" \nlist->length : ");
-	ft_putnbr(list->length);
-	ft_putstr(" list->pos " );
-	ft_putnbr(list->pos);
-	ft_putchar('\n');
 	ft_clear_line();
 	ft_move_begin();
 	ft_display_list(list);

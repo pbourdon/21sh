@@ -6,7 +6,7 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/13 01:06:27 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/09/01 14:26:54 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/09/05 17:24:57 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,12 +49,10 @@ t_dlist		*ft_del_ele_list(t_dlist *list, size_t p, t_node *p_temp, size_t i)
 					p_temp = ft_fuck_norm3(p_temp);
 				if (p_temp->data != NULL && p_temp != NULL && list->length > 0)
 				{
-				//	ft_putstr(" \nTHE LINK TO BE DELETED IS ");
-				//	ft_putstr(p_temp->data);
-				//	ft_putchar('\n');
 					free(p_temp->data);
 					free(p_temp);
 					list->length = list->length - 1;
+					list->pos = list->pos - 1;
 				}
 			}
 			else
