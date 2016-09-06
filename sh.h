@@ -6,7 +6,7 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/22 17:27:56 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/09/06 09:10:31 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/09/06 10:29:38 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ static char term_buffer[2048];
 # include <curses.h>
 # include <termcap.h>
 # include "libft/includes/libft.h"
+# include <sys/ioctl.h>
+
 
 int			ft_tc(void);
 void		ft_get_user_input(void);
