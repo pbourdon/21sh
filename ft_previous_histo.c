@@ -6,7 +6,7 @@
 /*   By: pbourdon <pbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/03 20:23:00 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/09/05 01:31:24 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/09/06 14:19:24 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,29 @@ t_dlist		*ft_previous_histo2(t_dlist *list, t_dlist *histo, char *str, int
 index)
 {
 	char	str2[2];
+	struct winsize sz;
+	int		index2;
+	char	*str3;
 
 	if (histo->pos > 1)
 		histo->pos = histo->pos - 1;
-	ft_move_begin();
+	str3 = ft_get_element_from_list(histo, histo->pos);
+//	ft_putchar('\n');
+//	ft_putstr(str3);
+	index2 = ft_strlen(str3);
+	ioctl(0, TIOCGWINSZ, &sz);
+	index2 = index2 / sz.ws_col;
+
 	ft_clear_line();
+	while (index2 > 0)
+	{
+		ft_clear_line();
+
+		ft_up(list);
+
+		index2--;
+	}
+	ft_move_begin();
 	ft_delete_list(&list);
 	list = NULL;
 	list = dlist_new(list);

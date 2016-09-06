@@ -6,7 +6,7 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/01 15:53:50 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/09/06 11:12:57 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/09/06 14:16:16 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,6 @@ t_dlist		*ft_finish_command(t_dlist *list, t_dlist *histo)
 	int		index;
 	struct winsize sz;
 
-	ioctl(0, TIOCGWINSZ, &sz);
-	index = list->length / sz.ws_col;
-	ft_putnbr(index);
-	while (index > 0)
-	{
-		ft_putchar('\n');
-		index--;
-	}
 	ft_putchar('\n');
 	ft_display_list(list);
 	ft_putchar('\n');
