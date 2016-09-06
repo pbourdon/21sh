@@ -6,7 +6,7 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/22 17:27:56 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/09/05 19:49:47 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/09/06 09:10:31 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ int			ft_detect_second_delete(char *buffer);
 int			ft_detect_paste(char *buffer);
 int			ft_detect_copy(char *buffer);
 int			ft_detect_cut(char *buffer);
+int			ft_detect_tab(char *buffer);
 
 t_dlist		*ft_get_info_from_list(t_dlist *list, t_dlist *histo);
 
