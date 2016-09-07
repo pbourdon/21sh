@@ -1,30 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_finish_command.c                                :+:      :+:    :+:   */
+/*   ft_check_correct_entry2.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/09/01 15:53:50 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/09/07 17:56:14 by pbourdon         ###   ########.fr       */
+/*   Created: 2016/09/07 17:57:55 by pbourdon          #+#    #+#             */
+/*   Updated: 2016/09/07 17:59:31 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sh.h"
 
-t_dlist		*ft_finish_command(t_dlist *list, t_dlist *histo)
+int		ft_check_dquo(char *str)
 {
 	int		index;
-	struct winsize sz;
+	int		total;
 
-	if (ft_check_correct_entry(list) == 1)
-		return (list);
-	ft_putchar('\n');
-	ft_display_list(list);
-	ft_putchar('\n');
-	histo = ft_get_info_from_list(list, histo);
-	ft_delete_list(&list);
-	list = NULL;
-	list = dlist_new(list);
-	return (list);
+	index = 0;
+	total = 0;
+	while (str[index] != '\0')
+	{
+		if (str[index] == '"' && total == 0)
+			total = 1;
+		else if (str[index] == '"' && total == 1)
+			total = 0;
+		index++;
+	}
+	return (total);
 }

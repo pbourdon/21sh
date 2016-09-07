@@ -6,7 +6,7 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/22 17:27:56 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/09/07 17:35:25 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/09/07 18:00:26 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ int			ft_detect_page_down(char *buffer);
 t_dlist		*ft_get_info_from_list(t_dlist *list, t_dlist *histo);
 
 int			ft_check_correct_entry(t_dlist *list);
+int			ft_check_dquo(char *str);
 
 t_dlist		*ft_left(t_dlist *list);
 t_dlist		*ft_right(t_dlist *list);

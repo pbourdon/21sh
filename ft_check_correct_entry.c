@@ -6,7 +6,7 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/07 17:29:38 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/09/07 17:42:42 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/09/07 18:00:29 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,8 +90,8 @@ int		ft_check_correct_entry(t_dlist *list)
 
 	str = ft_get_str_from_list(list);
 	if (ft_check_par(str) == 0 && ft_check_acc(str) == 0 &&
-		ft_check_cro(str) == 0 && ft_check_quo(str) == 0)/* &&
-		ft_check_dquo(str) == 0 && ft_check_bquo(str) == 0)*/
+		ft_check_cro(str) == 0 && ft_check_quo(str) == 0 &&
+		ft_check_dquo(str) == 0)
 		return (0);
 	return (1);
 }
