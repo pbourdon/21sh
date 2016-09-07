@@ -6,7 +6,7 @@
 /*   By: pbourdon <pbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/13 08:38:32 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/09/06 14:12:34 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/09/07 15:46:00 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ typedef struct		s_node
 typedef struct		s_dlist
 {
 	struct s_node	*p_tail;
+	int				index2;
 	int				pos;
 	int				length;
 	struct s_node	*p_head;

@@ -6,7 +6,7 @@
 /*   By: pbourdon <pbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/03 20:23:00 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/09/06 14:19:24 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/09/07 15:50:13 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,10 @@ index)
 	struct winsize sz;
 	int		index2;
 	char	*str3;
+	int		index3;
+	int		index4;
 
+	index3 = 0;
 	if (histo->pos > 1)
 		histo->pos = histo->pos - 1;
 	str3 = ft_get_element_from_list(histo, histo->pos);
@@ -28,17 +31,21 @@ index)
 	index2 = ft_strlen(str3);
 	ioctl(0, TIOCGWINSZ, &sz);
 	index2 = index2 / sz.ws_col;
-
+	index4 = histo->index2;
+	histo->index2 = index2;
+	index2 = index4;
 	ft_clear_line();
-	while (index2 > 0)
+	while (index3 < index2)
 	{
-		ft_clear_line();
-
 		ft_up(list);
-
-		index2--;
+		ft_clear_line();
+		index3++;
 	}
 	ft_move_begin();
+//	ft_putchar('\n');
+//	ft_putstr(" the number of line of PREVIOUS DISPLAY is ");
+//	ft_putnbr(index2);
+//	ft_putchar('\n');
 	ft_delete_list(&list);
 	list = NULL;
 	list = dlist_new(list);
