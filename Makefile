@@ -6,7 +6,7 @@
 #    By: pbourdon <pbourdon@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/07/04 13:03:16 by pbourdon          #+#    #+#              #
-#    Updated: 2016/09/07 16:30:28 by pbourdon         ###   ########.fr        #
+#    Updated: 2016/09/07 17:34:57 by pbourdon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -58,6 +58,7 @@ SRC =	main.c\
 		ft_detect_page_down.c\
 		ft_move_page_up.c\
 		ft_move_page_down.c\
+		ft_check_correct_entry.c\
 
 
 OBJ = $(SRC:.c=.o)
