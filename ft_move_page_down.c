@@ -1,33 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_finish_command.c                                :+:      :+:    :+:   */
+/*   ft_move_page_down.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/09/01 15:53:50 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/09/07 17:02:19 by pbourdon         ###   ########.fr       */
+/*   Created: 2016/09/07 16:34:16 by pbourdon          #+#    #+#             */
+/*   Updated: 2016/09/07 17:24:35 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sh.h"
 
-t_dlist		*ft_finish_command(t_dlist *list, t_dlist *histo)
+t_dlist		*ft_move_page_down(t_dlist *list)
 {
 	int		index;
 	struct winsize sz;
+	int		index2;
 
-	ft_putchar('\n');
-	ft_putchar('\n');
-	ft_display_list(list);
-	ft_putchar('\n');
-	ft_putchar('\n');
-	histo = ft_get_info_from_list(list, histo);
-//	ft_run_commands(list);
-	// need to handle how to keep in historic this list
-	// to make tests, i free/recreate an empty list, but I need to modify that
-	ft_delete_list(&list);
-	list = NULL;
-	list = dlist_new(list);
+	ioctl(0, TIOCGWINSZ, &sz);
+	index = list->pos % sz.ws_col;
+	index2 = index;
+	if (index + (list->length - list->pos) >= sz.ws_col)
+	{
+		ft_down(list);
+		list->pos = list->pos + (sz.ws_col - index) + 1;
+		while (index > 1)
+		{
+			ft_right(list);
+			index--;
+		}
+	}
 	return (list);
 }

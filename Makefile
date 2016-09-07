@@ -6,7 +6,7 @@
 #    By: pbourdon <pbourdon@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/07/04 13:03:16 by pbourdon          #+#    #+#              #
-#    Updated: 2016/09/06 09:10:36 by pbourdon         ###   ########.fr        #
+#    Updated: 2016/09/07 16:30:28 by pbourdon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,6 +54,10 @@ SRC =	main.c\
 		ft_cut.c\
 		ft_paste.c\
 		ft_detect_tab.c\
+		ft_detect_page_up.c\
+		ft_detect_page_down.c\
+		ft_move_page_up.c\
+		ft_move_page_down.c\
 
 
 OBJ = $(SRC:.c=.o)
