@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_finish_command.c                                :+:      :+:    :+:   */
+/*   ft_check_file.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/09/01 15:53:50 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/09/08 15:38:34 by pbourdon         ###   ########.fr       */
+/*   Created: 2016/07/12 22:56:35 by pbourdon          #+#    #+#             */
+/*   Updated: 2016/09/08 16:28:56 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sh.h"
 
-int			ft_finish_command(t_dlist *list, t_dlist *histo)
+int		ft_check_file(char *path)
 {
-	int		index;
-	struct winsize sz;
+	struct stat		file_stat;
 
-	if (ft_check_correct_entry(list) == 1)
+	if (stat(path, &file_stat) != 0)
 		return (0);
-	histo = ft_get_info_from_list(list, histo);
-	return (1);
+	if (S_ISREG(file_stat.st_mode) != 1)
+		return (0);
+	return (access(path, F_OK | X_OK) == 0);
 }

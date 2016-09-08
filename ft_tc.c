@@ -6,7 +6,7 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/23 16:18:18 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/09/08 14:31:31 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/09/08 15:39:49 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ int		ft_tc(void)
 	// On applique les changements :
 		if (tcsetattr(0, TCSADRAIN, &term) == -1)
 			return (-1);
-	ft_get_user_input();
+	if (ft_get_user_input() == 1)
+		return (1);
 	return (0);
 }

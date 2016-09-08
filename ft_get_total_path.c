@@ -1,24 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_finish_command.c                                :+:      :+:    :+:   */
+/*   ft_get_total_path.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/09/01 15:53:50 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/09/08 15:38:34 by pbourdon         ###   ########.fr       */
+/*   Created: 2016/07/26 16:49:49 by pbourdon          #+#    #+#             */
+/*   Updated: 2016/09/08 16:05:30 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sh.h"
 
-int			ft_finish_command(t_dlist *list, t_dlist *histo)
+int		ft_get_total_path(t_dlist *list)
 {
 	int		index;
-	struct winsize sz;
+	int		compteur;
+	char	*tmp;
 
-	if (ft_check_correct_entry(list) == 1)
-		return (0);
-	histo = ft_get_info_from_list(list, histo);
-	return (1);
+	index = 0;
+	compteur = 0;
+	tmp = ft_get_ele(list, ft_search_list(list, "PATH=")) + 5;
+	while (tmp[index] != '\0')
+	{
+		if (tmp[index] == ':')
+			compteur++;
+		index++;
+	}
+	return (compteur);
 }

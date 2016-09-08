@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_finish_command.c                                :+:      :+:    :+:   */
+/*   ft_give_path.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/09/01 15:53:50 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/09/08 15:38:34 by pbourdon         ###   ########.fr       */
+/*   Created: 2016/07/21 00:26:59 by pbourdon          #+#    #+#             */
+/*   Updated: 2016/09/08 16:08:50 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sh.h"
 
-int			ft_finish_command(t_dlist *list, t_dlist *histo)
+char	*ft_give_path(char *arg)
 {
 	int		index;
-	struct winsize sz;
 
-	if (ft_check_correct_entry(list) == 1)
-		return (0);
-	histo = ft_get_info_from_list(list, histo);
-	return (1);
+	index = 0;
+	while (arg[index] != '\0' && arg[index] != ' ' && arg[index] != '\t'
+			&& arg[index] != '\n' && arg[index] != '\r')
+		index++;
+	return (ft_strcut(arg, index));
 }

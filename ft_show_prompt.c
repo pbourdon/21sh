@@ -1,24 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_finish_command.c                                :+:      :+:    :+:   */
+/*   ft_show_prompt.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/09/01 15:53:50 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/09/08 15:38:34 by pbourdon         ###   ########.fr       */
+/*   Created: 2016/07/12 23:29:15 by pbourdon          #+#    #+#             */
+/*   Updated: 2016/09/08 15:45:23 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sh.h"
 
-int			ft_finish_command(t_dlist *list, t_dlist *histo)
+void		ft_show_prompt(void)
 {
-	int		index;
-	struct winsize sz;
+	char	*tmp;
 
-	if (ft_check_correct_entry(list) == 1)
-		return (0);
-	histo = ft_get_info_from_list(list, histo);
-	return (1);
+	tmp = getcwd(0, 0);
+	ft_putstr("$> ");
+	if (tmp != NULL)
+	{
+		ft_putstr(ft_last_dir(tmp));
+		free(tmp);
+	}
+	ft_putstr(" : ");
 }

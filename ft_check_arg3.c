@@ -1,24 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_finish_command.c                                :+:      :+:    :+:   */
+/*   ft_check_arg2.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/09/01 15:53:50 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/09/08 15:38:34 by pbourdon         ###   ########.fr       */
+/*   Created: 2016/08/18 14:59:09 by pbourdon          #+#    #+#             */
+/*   Updated: 2016/09/08 16:30:41 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sh.h"
 
-int			ft_finish_command(t_dlist *list, t_dlist *histo)
+int			ft_check_arg3(char *boucle, t_dlist *list, char **options)
 {
-	int		index;
-	struct winsize sz;
+	char	*generated;
 
-	if (ft_check_correct_entry(list) == 1)
-		return (0);
-	histo = ft_get_info_from_list(list, histo);
+	if (boucle[0] != '.')
+	{
+		generated = ft_generate_path(boucle, list);
+		ft_run_exe(generated, options, list);
+		free(generated);
+	}
+	else
+		ft_run_exe(boucle, options, list);
+	ft_free_tab(options);
+	free(boucle);
 	return (1);
 }

@@ -1,24 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_finish_command.c                                :+:      :+:    :+:   */
+/*   ft_get_sigint.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/09/01 15:53:50 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/09/08 15:38:34 by pbourdon         ###   ########.fr       */
+/*   Created: 2016/09/08 16:31:43 by pbourdon          #+#    #+#             */
+/*   Updated: 2016/09/08 16:32:37 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sh.h"
 
-int			ft_finish_command(t_dlist *list, t_dlist *histo)
+void		ft_get_sigint(int signal)
 {
-	int		index;
-	struct winsize sz;
-
-	if (ft_check_correct_entry(list) == 1)
-		return (0);
-	histo = ft_get_info_from_list(list, histo);
-	return (1);
+	write (1, "\r\n##", 2);
+	signal = 3;
 }

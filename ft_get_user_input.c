@@ -6,19 +6,21 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/31 14:08:26 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/09/08 15:03:58 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/09/08 16:35:05 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sh.h"
 
-void	ft_get_user_input(void)
+int				ft_get_user_input(void)
 {
 	char		*buffer;
 	t_dlist		*list;
 	t_dlist		*histo;
 	t_dlist		*to_paste;
+	t_dlist		*env;
 
+	env = NULL;
 	histo = NULL;
 	list = NULL;
 	to_paste = NULL;
@@ -26,6 +28,10 @@ void	ft_get_user_input(void)
 	histo = dlist_new(histo);
 	buffer = malloc(sizeof(char) * 7);
 	list = dlist_new(list);
+	env = dlist_new(env);
+	env = ft_cpy_env(env);
+	if (ft_list_size(env->p_head) == 0)
+		env = ft_cpy_env2(env);
 	while (42)
 	{
 		buffer = ft_bzero(buffer, 7);
@@ -42,11 +48,11 @@ void	ft_get_user_input(void)
 			ft_putchar('\n');
 			ft_display_list(list);
 			ft_putchar('\n');
+			if (ft_process(ft_get_str_from_list(list), env) == 1)
+				return (1);
 			ft_delete_list(&list);
 			list = NULL;
 			list = dlist_new(list);
-		
-			// execute the command
 		}
 	}
 }

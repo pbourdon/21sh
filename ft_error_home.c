@@ -1,24 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_finish_command.c                                :+:      :+:    :+:   */
+/*   ft_error_home.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/09/01 15:53:50 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/09/08 15:38:34 by pbourdon         ###   ########.fr       */
+/*   Created: 2016/08/17 17:22:55 by pbourdon          #+#    #+#             */
+/*   Updated: 2016/09/08 15:50:51 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sh.h"
 
-int			ft_finish_command(t_dlist *list, t_dlist *histo)
+int		ft_error_home2(char *tmp2)
 {
-	int		index;
-	struct winsize sz;
-
-	if (ft_check_correct_entry(list) == 1)
-		return (0);
-	histo = ft_get_info_from_list(list, histo);
+	ft_putstr(" A problem just happened, you need to add the home environment");
+	ft_putstr(" variable to perform this operation\n");
+	free(tmp2);
 	return (1);
+}
+
+char	**ft_error_home(void)
+{
+	ft_putstr(" A problem just happened, you need to add the home environment");
+	ft_putstr(" variable to perform this operation\n");
+	return (NULL);
 }

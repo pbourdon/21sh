@@ -6,7 +6,7 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/01 16:27:59 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/09/08 14:39:55 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/09/08 15:34:05 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,15 +39,9 @@ int			ft_deal_input(char *buffer, t_dlist *list, t_dlist *histo,
 	else if (ft_detect_left(buffer) == 1)
 		return (ft_left(list));
 	else if (ft_detect_up(buffer) == 1)
-	{
-		// read the previous entry of historic
 		return (ft_previous_histo(list, histo));
-	}
 	else if (ft_detect_down(buffer) == 1)
-	{
-		// read the following entry of historic
 		return (ft_next_histo(list, histo));
-	}
 	else if (ft_detect_copy(buffer) == 1)
 		return (ft_copy(list, to_paste));
 	else if (ft_detect_cut(buffer) == 1)

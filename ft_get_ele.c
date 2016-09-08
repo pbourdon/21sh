@@ -1,24 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_finish_command.c                                :+:      :+:    :+:   */
+/*   ft_get_element.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/09/01 15:53:50 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/09/08 15:38:34 by pbourdon         ###   ########.fr       */
+/*   Created: 2016/08/15 18:39:12 by pbourdon          #+#    #+#             */
+/*   Updated: 2016/09/08 15:49:31 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sh.h"
 
-int			ft_finish_command(t_dlist *list, t_dlist *histo)
+char	*ft_get_ele(t_dlist *liste, int pos)
 {
-	int		index;
-	struct winsize sz;
+	int			i;
+	t_node		*courant;
 
-	if (ft_check_correct_entry(list) == 1)
-		return (0);
-	histo = ft_get_info_from_list(list, histo);
-	return (1);
+	i = 1;
+	courant = liste->p_head;
+	while (i++ < pos)
+		courant = courant->p_next;
+	return (courant->data);
 }

@@ -6,7 +6,7 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/22 17:27:56 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/09/08 14:39:39 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/09/08 16:32:35 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static char term_buffer[2048];
 
 
 int			ft_tc(void);
-void		ft_get_user_input(void);
+int			ft_get_user_input(void);
 int			ft_deal_input(char *buffer, t_dlist *list, t_dlist *histo,
 			t_dlist *to_paste);
 int			ft_deal_input2(char *buffer, t_dlist *list, t_dlist *histo,
@@ -99,4 +99,41 @@ int			ft_clear_line(void);
 int			ft_finish_command(t_dlist *list, t_dlist *histo);
 
 int			ft_add_element(t_dlist *list, char *buffer);
+
+int			ft_process(char *line, t_dlist *env);
+
+t_dlist		*ft_choose(char *arg, t_dlist *list);
+void		ft_show_prompt(void);
+char		*ft_last_dir(char *path);
+int			ft_run_cd(char *arg, t_dlist *line, char *tmp, char *tmp2);
+char		*ft_get_path(char *arg);
+char		*ft_home(t_dlist *list);
+char		*ft_get_ele(t_dlist *liste, int pos);
+int			ft_error_home2(char *tmp2);
+char		**ft_error_home(void);
+t_dlist		*ft_exchange_element2(t_dlist *list, char *oldpwd);
+t_dlist		*ft_exchange_element(t_dlist *list, char *test1, char *test4);
+void		ft_error(char *arg, int version);
+char		*ft_prev(t_dlist *list);
+void		ft_run_echo(char *arg, t_dlist *list);
+t_dlist		*ft_run_unsetenv(char *arg, t_dlist *list);
+void		ft_run_setenv(char *arg, t_dlist *list);
+int			ft_check_arg(char *arg, t_dlist *list, int index, char *boucle);
+char		*ft_boucle(char *arg);
+char		**ft_get_options1(char *arg, char **options);
+char		**ft_get_options2(char *arg, char **options, size_t *index, int *x);
+char		*ft_get_options3(char *home, char *arg, size_t *index2, char *opto);
+char		*ft_get_options4(size_t *index, int compteur, char *opt, char *arg);
+int			ft_get_size(char *str);
+int			ft_get_total_path(t_dlist *list);
+char		*ft_get_auto_path(int x, t_dlist *list, int drop, int index);
+char		*ft_give_path(char *arg);
+int			ft_run_exe(char *path, char **options, t_dlist *list);
+int			ft_check_file(char *path);
+int			ft_check_arg3(char *boucle, t_dlist *list, char **options);
+char		*ft_generate_path(char *arg, t_dlist *list);
+void		ft_get_sigint(int signal);
+
+
+
 #endif

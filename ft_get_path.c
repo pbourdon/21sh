@@ -1,24 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_finish_command.c                                :+:      :+:    :+:   */
+/*   ft_get_path.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/09/01 15:53:50 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/09/08 15:38:34 by pbourdon         ###   ########.fr       */
+/*   Created: 2016/07/20 19:28:18 by pbourdon          #+#    #+#             */
+/*   Updated: 2016/09/08 15:47:28 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sh.h"
 
-int			ft_finish_command(t_dlist *list, t_dlist *histo)
+char		*ft_get_path(char *arg)
 {
 	int		index;
-	struct winsize sz;
+	char	*tmp;
+	int		index2;
 
-	if (ft_check_correct_entry(list) == 1)
-		return (0);
-	histo = ft_get_info_from_list(list, histo);
-	return (1);
+	index = 3;
+	index2 = 0;
+	tmp = malloc(sizeof(char) * ft_strlen(arg));
+	while (arg[index] == '\t' || arg[index] == ' ' || arg[index] == '\r' ||
+		arg[index] == '\n')
+		index++;
+	while (arg[index] != '\0' && arg[index] != ' ')
+	{
+		tmp[index2] = arg[index];
+		index++;
+		index2++;
+	}
+	tmp[index2] = '\0';
+	return (tmp);
 }

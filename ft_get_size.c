@@ -1,24 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_finish_command.c                                :+:      :+:    :+:   */
+/*   ft_get_size.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/09/01 15:53:50 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/09/08 15:38:34 by pbourdon         ###   ########.fr       */
+/*   Created: 2016/08/15 15:59:31 by pbourdon          #+#    #+#             */
+/*   Updated: 2016/09/08 16:03:54 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sh.h"
 
-int			ft_finish_command(t_dlist *list, t_dlist *histo)
+int		ft_get_size(char *str)
 {
 	int		index;
-	struct winsize sz;
+	int		compteur;
 
-	if (ft_check_correct_entry(list) == 1)
-		return (0);
-	histo = ft_get_info_from_list(list, histo);
-	return (1);
+	index = 1;
+	compteur = 2;
+	while (str[index] != '\0')
+	{
+		if ((str[index] == ' ' || str[index] == '\t' || str[index] == '\n') && (
+			str[index - 1] != ' ' || str[index - 1] != '\t' || str[index - 1]
+			!= '\n'))
+			compteur++;
+		index++;
+	}
+	return (compteur);
 }
