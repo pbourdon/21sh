@@ -6,13 +6,13 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/07 16:30:46 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/09/07 17:29:31 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/09/08 14:40:39 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sh.h"
 
-t_dlist		*ft_move_page_up(t_dlist *list)
+int			ft_move_page_up(t_dlist *list)
 {
 	int		index;
 	struct winsize sz;
@@ -25,5 +25,5 @@ t_dlist		*ft_move_page_up(t_dlist *list)
 		list->pos = list->pos - sz.ws_col;
 		ft_up(list);
 	}
-	return (list);
+	return (0);
 }

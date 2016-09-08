@@ -6,13 +6,13 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/01 16:27:59 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/09/07 16:54:01 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/09/08 14:39:55 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sh.h"
 
-t_dlist		*ft_deal_input(char *buffer, t_dlist *list, t_dlist *histo,
+int			ft_deal_input(char *buffer, t_dlist *list, t_dlist *histo,
 			t_dlist *to_paste)
 {
 	/*
@@ -58,7 +58,7 @@ t_dlist		*ft_deal_input(char *buffer, t_dlist *list, t_dlist *histo,
 		return (ft_deal_input2(buffer, list, histo, to_paste));
 }
 
-t_dlist		*ft_deal_input2(char *buffer, t_dlist *list, t_dlist *histo,
+int		ft_deal_input2(char *buffer, t_dlist *list, t_dlist *histo,
 			t_dlist *to_paste)
 {
 	if (buffer[0] == 127) // delete button
@@ -74,12 +74,12 @@ t_dlist		*ft_deal_input2(char *buffer, t_dlist *list, t_dlist *histo,
 	else if (ft_detect_shift_end(buffer) == 1)
 		return (ft_move_shift_end(list));
 	else if (ft_detect_tab(buffer) == 1)
-		return (list);
+		return (0);
 	else if (ft_detect_page_up(buffer) == 1)
 		return (ft_move_page_up(list));
 	else if (ft_detect_page_down(buffer) == 1)
 		return (ft_move_page_down(list));
 	else
 		return (ft_add_element(list, buffer));
-	return (list);
+	return (0);
 }

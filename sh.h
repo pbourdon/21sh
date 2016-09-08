@@ -6,7 +6,7 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/22 17:27:56 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/09/07 18:00:26 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/09/08 14:39:39 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,9 @@ static char term_buffer[2048];
 
 int			ft_tc(void);
 void		ft_get_user_input(void);
-t_dlist		*ft_deal_input(char *buffer, t_dlist *list, t_dlist *histo,
+int			ft_deal_input(char *buffer, t_dlist *list, t_dlist *histo,
 			t_dlist *to_paste);
-t_dlist		*ft_deal_input2(char *buffer, t_dlist *list, t_dlist *histo,
+int			ft_deal_input2(char *buffer, t_dlist *list, t_dlist *histo,
 			t_dlist *to_paste);
 
 int			ft_detect_right(char *buffer);
@@ -71,32 +71,32 @@ t_dlist		*ft_get_info_from_list(t_dlist *list, t_dlist *histo);
 int			ft_check_correct_entry(t_dlist *list);
 int			ft_check_dquo(char *str);
 
-t_dlist		*ft_left(t_dlist *list);
-t_dlist		*ft_right(t_dlist *list);
-t_dlist		*ft_up(t_dlist *list);
-t_dlist		*ft_down(t_dlist *list);
-t_dlist		*ft_move_end(t_dlist *list);
-t_dlist		*ft_move_home(t_dlist *list);
-t_dlist		*ft_move_shift_home(t_dlist *list);
-t_dlist		*ft_move_shift_end(t_dlist *list);
-t_dlist		*ft_move_page_up(t_dlist *list);
-t_dlist		*ft_move_page_down(t_dlist *list);
+int			ft_left(t_dlist *list);
+int			ft_right(t_dlist *list);
+int			ft_up(t_dlist *list);
+int			ft_down(t_dlist *list);
+int			ft_move_end(t_dlist *list);
+int			ft_move_home(t_dlist *list);
+int			ft_move_shift_home(t_dlist *list);
+int			ft_move_shift_end(t_dlist *list);
+int			ft_move_page_up(t_dlist *list);
+int			ft_move_page_down(t_dlist *list);
 
-t_dlist		*ft_second_delete(t_dlist *list);
+int			ft_second_delete(t_dlist *list);
 int			ft_move_begin(void);
 
-t_dlist		*ft_copy(t_dlist *list, t_dlist *to_paste);
-t_dlist		*ft_cut(t_dlist *list, t_dlist *to_paste, int index, char *buffer);
-t_dlist		*ft_paste(t_dlist *list, t_dlist *to_paste, int index, char *str);
+int			ft_copy(t_dlist *list, t_dlist *to_paste);
+int			ft_cut(t_dlist *list, t_dlist *to_paste, int index, char *buffer);
+int			ft_paste(t_dlist *list, t_dlist *to_paste, int index, char *str);
 
-t_dlist		*ft_previous_histo(t_dlist *list, t_dlist *histo);
-t_dlist		*ft_next_histo(t_dlist *list, t_dlist *histo);
+int			ft_previous_histo(t_dlist *list, t_dlist *histo);
+int			ft_next_histo(t_dlist *list, t_dlist *histo);
 
-t_dlist		*ft_delete_on_shell(t_dlist *list);
+int			ft_delete_on_shell(t_dlist *list);
 int			ft_clear_n_char(int n);
 int			ft_clear_line(void);
 
-t_dlist		*ft_finish_command(t_dlist *list, t_dlist *histo);
+int			ft_finish_command(t_dlist *list, t_dlist *histo);
 
-t_dlist		*ft_add_element(t_dlist *list, char *buffer);
+int			ft_add_element(t_dlist *list, char *buffer);
 #endif

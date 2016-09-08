@@ -6,13 +6,13 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/05 01:33:19 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/09/05 19:58:29 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/09/08 14:46:43 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sh.h"
 
-t_dlist		*ft_copy(t_dlist *list, t_dlist *to_paste)
+int		ft_copy(t_dlist *list, t_dlist *to_paste)
 {
 	char	*buffer;
 	char	str[2];
@@ -34,9 +34,9 @@ t_dlist		*ft_copy(t_dlist *list, t_dlist *to_paste)
 		if (buffer[0] == 10)
 		{
 			free(buffer);
-			return (list);
+			return (0);
 		}
 	}
 	free(buffer);
-	return (list);
+	return (0);
 }

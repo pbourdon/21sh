@@ -6,7 +6,7 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/05 01:33:19 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/09/05 19:57:12 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/09/08 14:37:10 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void		ft_cut2(t_dlist *list, char *str, t_dlist *to_paste)
 	ft_right(list);
 }
 
-t_dlist		*ft_cut3(t_dlist *list, int *tab2, int index, char *buffer)
+int			ft_cut3(t_dlist *list, int *tab2, int index, char *buffer)
 {
 	index--;
 	while (index >= 0)
@@ -33,10 +33,10 @@ t_dlist		*ft_cut3(t_dlist *list, int *tab2, int index, char *buffer)
 	ft_display_list(list);
 	free(buffer);
 	free(tab2);
-	return (list);
+	return (0);
 }
 
-t_dlist		*ft_cut(t_dlist *list, t_dlist *to_paste, int index, char *buffer)
+int			ft_cut(t_dlist *list, t_dlist *to_paste, int index, char *buffer)
 {
 	char	str[2];
 	int		*tab2;
@@ -60,5 +60,5 @@ t_dlist		*ft_cut(t_dlist *list, t_dlist *to_paste, int index, char *buffer)
 	}
 	free(tab2);
 	free(buffer);
-	return (list);
+	return (0);
 }

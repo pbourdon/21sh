@@ -6,7 +6,7 @@
 /*   By: pbourdon <pbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/03 19:25:43 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/09/05 00:04:22 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/09/08 14:59:53 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,14 @@
 t_dlist		*ft_get_info_from_list(t_dlist *list, t_dlist *histo)
 {
 	char	*str;
+	int		index;
 
+	index = 0;
 	str = ft_get_str_from_list(list);
-	histo = ft_add_data2(histo, str);
+	while (str[index] == ' ')
+		index++;
+	if (ft_strlen(str) > 0 && index != ft_strlen(str))
+		histo = ft_add_data2(histo, str);
 	if (ft_strcmp("exit", str) == 0)
 	{
 		free(str);

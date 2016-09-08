@@ -6,13 +6,13 @@
 /*   By: pbourdon <pbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/03 17:15:34 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/09/06 10:27:47 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/09/08 14:41:11 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sh.h"
 
-t_dlist		*ft_move_shift_end(t_dlist *list)
+int			ft_move_shift_end(t_dlist *list)
 {
 	int		pos;
 
@@ -24,7 +24,7 @@ t_dlist		*ft_move_shift_end(t_dlist *list)
 			ft_strcmp(ft_get_element_from_list(list, pos), "\r") != 0 &&
 			pos < list->length)
 	{
-		list = ft_right(list);
+		ft_right(list);
 		pos = list->pos;
 	}
 	if (ft_strcmp(ft_get_element_from_list(list, pos + 1), " ") == 0)
@@ -36,11 +36,11 @@ t_dlist		*ft_move_shift_end(t_dlist *list)
 				ft_strcmp(ft_get_element_from_list(list, pos), "\r") == 0) &&
 				pos < list->length)
 		{
-			list = ft_right(list);
+			ft_right(list);
 			pos = list->pos;
 		}
-		list = ft_left(list);
+		ft_left(list);
 		pos = list->pos;
 	}
-	return (list);
+	return (0);
 }

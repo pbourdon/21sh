@@ -6,21 +6,21 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/01 16:21:58 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/09/05 01:32:26 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/09/08 14:44:57 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sh.h"
 
-t_dlist		*ft_move_home(t_dlist *list)
+int		ft_move_home(t_dlist *list)
 {
 	int		pos;
 
 	pos = list->pos;
 	while (pos > 0)
 	{
-		list = ft_left(list);
+		ft_left(list);
 		pos--;
 	}
-	return (list);
+	return (0);
 }

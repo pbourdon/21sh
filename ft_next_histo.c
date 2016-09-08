@@ -6,13 +6,13 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/04 22:51:17 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/09/07 15:50:30 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/09/08 15:04:05 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sh.h"
 
-t_dlist		*ft_next_histo2(t_dlist *list, t_dlist *histo, char *str, int index)
+int			ft_next_histo2(t_dlist *list, t_dlist *histo, char *str, int index)
 {
 	char	str2[2];
 	struct winsize sz;
@@ -39,12 +39,6 @@ t_dlist		*ft_next_histo2(t_dlist *list, t_dlist *histo, char *str, int index)
 		index3++;
 	}
 	ft_move_begin();
-//	ft_putstr(" \nthe number of line of PREVIOUS DISPLAY is ");
-//	ft_putnbr(index2);
-//	ft_putchar('\n');
-	ft_delete_list(&list);
-	list = NULL;
-	list = dlist_new(list);
 	str = ft_get_element_from_list(histo, histo->pos);
 	while (str[index] != '\0')
 	{
@@ -54,10 +48,10 @@ t_dlist		*ft_next_histo2(t_dlist *list, t_dlist *histo, char *str, int index)
 		index++;
 	}
 	ft_display_list(list);
-	return (list);
+	return (0);
 }
 
-t_dlist		*ft_next_histo(t_dlist *list, t_dlist *histo)
+int			ft_next_histo(t_dlist *list, t_dlist *histo)
 {
 	char	*str;
 
@@ -65,5 +59,5 @@ t_dlist		*ft_next_histo(t_dlist *list, t_dlist *histo)
 	free(str);
 	if (histo->pos > 0 && histo->pos <= histo->length)
 		return (ft_next_histo2(list, histo, str, 0));
-	return (list);
+	return (0);
 }

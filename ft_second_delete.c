@@ -6,14 +6,14 @@
 /*   By: pbourdon <pbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/03 16:27:32 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/09/03 16:33:43 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/09/08 14:45:39 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sh.h"
 
-t_dlist		*ft_second_delete(t_dlist *list)
+int		ft_second_delete(t_dlist *list)
 {
-	list = ft_left(list);
-	return (list);
+	ft_left(list);
+	return (0);
 }

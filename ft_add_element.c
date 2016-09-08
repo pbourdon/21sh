@@ -6,13 +6,13 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/31 17:42:31 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/09/05 17:10:32 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/09/08 14:44:07 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sh.h"
 
-t_dlist		*ft_add_element(t_dlist *list, char *buffer)
+int			ft_add_element(t_dlist *list, char *buffer)
 {
 	char	test[2];
 
@@ -30,5 +30,5 @@ t_dlist		*ft_add_element(t_dlist *list, char *buffer)
 		tputs(tgetstr("ei", NULL), 0, ft_putchar2);
 		list = ins_avant(list, test, list->p_head, list->pos + 1);
 	}
-	return (list);
+	return (0);
 }

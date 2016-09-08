@@ -6,13 +6,13 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/05 02:34:32 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/09/05 20:01:56 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/09/08 14:43:00 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sh.h"
 
-t_dlist		*ft_paste(t_dlist *list, t_dlist *to_paste, int index, char *str)
+int			ft_paste(t_dlist *list, t_dlist *to_paste, int index, char *str)
 {
 	char	str2[2];
 
@@ -37,5 +37,5 @@ t_dlist		*ft_paste(t_dlist *list, t_dlist *to_paste, int index, char *str)
 		index++;
 	}
 	free(str);
-	return (list);
+	return (0);
 }

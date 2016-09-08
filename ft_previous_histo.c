@@ -6,13 +6,13 @@
 /*   By: pbourdon <pbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/03 20:23:00 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/09/07 16:31:33 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/09/08 15:04:16 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sh.h"
 
-t_dlist		*ft_previous_histo2(t_dlist *list, t_dlist *histo, char *str, int
+int			ft_previous_histo2(t_dlist *list, t_dlist *histo, char *str, int
 index)
 {
 	char	str2[2];
@@ -40,9 +40,6 @@ index)
 		index3++;
 	}
 	ft_move_begin();
-	ft_delete_list(&list);
-	list = NULL;
-	list = dlist_new(list);
 	str = ft_get_element_from_list(histo, histo->pos);
 	while (str[index] != '\0')
 	{
@@ -52,10 +49,10 @@ index)
 		index++;
 	}
 	ft_display_list(list);
-	return (list);
+	return (0);
 }
 
-t_dlist		*ft_previous_histo(t_dlist *list, t_dlist *histo)
+int			ft_previous_histo(t_dlist *list, t_dlist *histo)
 {
 	char	*str;
 
@@ -64,5 +61,5 @@ t_dlist		*ft_previous_histo(t_dlist *list, t_dlist *histo)
 		free(str);
 	if (histo->pos > 0)
 		return (ft_previous_histo2(list, histo, str, 0));
-	return (list);
+	return (0);
 }
