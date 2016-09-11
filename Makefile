@@ -6,7 +6,7 @@
 #    By: pbourdon <pbourdon@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/07/04 13:03:16 by pbourdon          #+#    #+#              #
-#    Updated: 2016/09/08 16:32:25 by pbourdon         ###   ########.fr        #
+#    Updated: 2016/09/11 14:07:25 by pbourdon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,8 +43,6 @@ SRC =	main.c\
 		ft_detect_shift_end.c\
 		ft_move_shift_end.c\
 		ft_get_info_from_list.c\
-		ft_previous_histo.c\
-		ft_next_histo.c\
 		ft_clear_line.c\
 		ft_move_begin.c\
 		ft_detect_copy.c\
@@ -85,7 +83,10 @@ SRC =	main.c\
 		ft_check_file.c\
 		ft_check_arg3.c\
 		ft_get_sigint.c\
-
+		ft_separate_dot_coma.c\
+		ft_detect_dot_coma.c\
+		ft_historic.c\
+		ft_move_and_clean.c\
 
 
 OBJ = $(SRC:.c=.o)

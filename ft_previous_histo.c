@@ -6,7 +6,7 @@
 /*   By: pbourdon <pbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/03 20:23:00 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/09/08 15:32:16 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/09/11 13:18:58 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ index)
 	index4 = histo->index2;
 	histo->index2 = index2;
 	index2 = index4;
+	ft_move_page_down(list);
 	ft_clear_line();
 	while (index3 < index2)
 	{
@@ -39,6 +40,7 @@ index)
 		ft_clear_line();
 		index3++;
 	}
+	
 	ft_move_begin();
 	str = ft_get_element_from_list(histo, histo->pos);
 	while (str[index] != '\0')

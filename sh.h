@@ -6,7 +6,7 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/22 17:27:56 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/09/08 16:32:35 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/09/11 14:14:36 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ int			ft_detect_cut(char *buffer);
 int			ft_detect_tab(char *buffer);
 int			ft_detect_page_up(char *buffer);
 int			ft_detect_page_down(char *buffer);
+int			ft_detect_dot_coma(char *buffer);
 
 t_dlist		*ft_get_info_from_list(t_dlist *list, t_dlist *histo);
 
@@ -89,16 +90,18 @@ int			ft_copy(t_dlist *list, t_dlist *to_paste);
 int			ft_cut(t_dlist *list, t_dlist *to_paste, int index, char *buffer);
 int			ft_paste(t_dlist *list, t_dlist *to_paste, int index, char *str);
 
-int			ft_previous_histo(t_dlist *list, t_dlist *histo);
-int			ft_next_histo(t_dlist *list, t_dlist *histo);
+int			ft_historic_after(t_dlist *list, t_dlist *histo);
+int			ft_historic_previous(t_dlist *list, t_dlist *histo);
+void		ft_move_and_clean(t_dlist *list);
 
 int			ft_delete_on_shell(t_dlist *list);
 int			ft_clear_n_char(int n);
 int			ft_clear_line(void);
 
 int			ft_finish_command(t_dlist *list, t_dlist *histo);
-
+char		**ft_separate_dot_coma(char **tab3, char *line, int total);
 int			ft_add_element(t_dlist *list, char *buffer);
+void		ft_move_down(t_dlist *list, int index2);
 
 int			ft_process(char *line, t_dlist *env);
 

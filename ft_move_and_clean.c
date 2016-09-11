@@ -1,29 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_move_page_up.c                                  :+:      :+:    :+:   */
+/*   ft_move_and_clean.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/09/07 16:30:46 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/09/11 14:00:02 by pbourdon         ###   ########.fr       */
+/*   Created: 2016/09/11 14:03:10 by pbourdon          #+#    #+#             */
+/*   Updated: 2016/09/11 15:35:44 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sh.h"
 
-int			ft_move_page_up(t_dlist *list)
+void		ft_move_and_clean(t_dlist *list)
 {
-	int		index;
-	struct winsize sz;
+	char			*str;
+	int				index;
+	int				index2;
+	struct winsize	sz;
 
-	index = list->pos;
+	index2 = 0;
 	ioctl(0, TIOCGWINSZ, &sz);
+	str = ft_get_str_from_list(list);
+	index = ft_strlen(str);
 	index = index / sz.ws_col;
-	if (index > 0)
+	while (list->pos > 0)
+		ft_left(list);
+	ft_clear_line();
+	ft_move_begin();
+	while (index2 < index)
 	{
-		list->pos = list->pos - sz.ws_col;
-		ft_up(list);
+		ft_down(list);
+		ft_move_begin();
+		ft_clear_line();
+		index2++;
 	}
-	return (0);
+	index2 = 0;
+	while (index2 < index)
+	{
+		ft_up(list);
+		ft_clear_line();
+		index2++;
+	}
+	ft_move_begin();
 }

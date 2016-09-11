@@ -6,7 +6,7 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/30 13:02:44 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/09/08 14:31:24 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/09/11 11:51:21 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 int		main(void)
 {
+	ft_putstr(" WELCOME ON 21SH by pbourdon \n");
 	ft_tc();
 	return (0);
 }

@@ -6,11 +6,23 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/04 22:51:17 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/09/08 15:04:05 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/09/11 13:38:15 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sh.h"
+
+void		ft_move_down(t_dlist *list, int index2)
+{
+	int		index;
+
+	index = 0;
+	while (index < index2)
+	{
+		ft_move_page_down(list);
+		index++;
+	}
+}
 
 int			ft_next_histo2(t_dlist *list, t_dlist *histo, char *str, int index)
 {
@@ -31,6 +43,7 @@ int			ft_next_histo2(t_dlist *list, t_dlist *histo, char *str, int index)
 	index4 = histo->index2;
 	histo->index2 = index2;
 	index2 = index4;
+	ft_move_down(list, index2);
 	ft_clear_line();
 	while (index3 < index2)
 	{
@@ -38,6 +51,7 @@ int			ft_next_histo2(t_dlist *list, t_dlist *histo, char *str, int index)
 		ft_clear_line();
 		index3++;
 	}
+
 	ft_move_begin();
 	str = ft_get_element_from_list(histo, histo->pos);
 	while (str[index] != '\0')
