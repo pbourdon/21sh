@@ -6,7 +6,7 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/11 11:11:35 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/09/11 16:20:40 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/09/11 16:26:54 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,5 @@ char		**ft_separate_dot_coma(char **tab3, char *line, int total)
 	}
 	tab3[compteur] = malloc(sizeof(char) * index - mem + 1);
 	tab3[compteur] = ft_get_str(tab3[compteur], line, mem, index);
-//	ft_display_tab(tab3);
 	return (tab3);
 }

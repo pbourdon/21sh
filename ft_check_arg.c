@@ -6,7 +6,7 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/18 20:47:18 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/09/08 16:31:03 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/09/11 17:42:44 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,6 +108,8 @@ int			ft_check_arg(char *arg, t_dlist *list, int index, char *boucle)
 	char	**options;
 
 	options = NULL;
+	if (ft_check_pipe(arg) == 1)
+		arg = ft_new_arg(arg);
 	options = ft_get_options(arg, list, 1, options);
 	if (options == NULL)
 		return (1);

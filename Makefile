@@ -6,7 +6,7 @@
 #    By: pbourdon <pbourdon@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/07/04 13:03:16 by pbourdon          #+#    #+#              #
-#    Updated: 2016/09/11 14:07:25 by pbourdon         ###   ########.fr        #
+#    Updated: 2016/09/11 17:43:36 by pbourdon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -87,6 +87,8 @@ SRC =	main.c\
 		ft_detect_dot_coma.c\
 		ft_historic.c\
 		ft_move_and_clean.c\
+		ft_check_pipe.c\
+		ft_new_arg.c\
 
 
 OBJ = $(SRC:.c=.o)

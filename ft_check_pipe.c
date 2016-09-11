@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_get_element.c                                   :+:      :+:    :+:   */
+/*   ft_check_pipe.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/08/15 18:39:12 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/09/11 16:36:57 by pbourdon         ###   ########.fr       */
+/*   Created: 2016/09/11 17:43:45 by pbourdon          #+#    #+#             */
+/*   Updated: 2016/09/11 17:44:27 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "sh.h"
 
-char	*ft_get_element_from_list(t_dlist *liste, int pos)
+int		ft_check_pipe(char *arg)
 {
-	int			i;
-	t_node		*courant;
+	int		index;
 
-	if (pos <= 0 || pos > liste->length)
-		return (NULL);
-	i = 1;
-	courant = liste->p_head;
-	while (i++ < pos && courant && i <= liste->length)
-		courant = courant->p_next;
-	return (courant->data);
+	index = 0;
+	while (arg[index] != '\0')
+	{
+		if (arg[index] == '|')
+			return (1);
+		index++;
+	}
+	return (0);
 }

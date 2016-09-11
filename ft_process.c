@@ -6,7 +6,7 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/08 15:34:16 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/09/11 16:21:21 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/09/11 16:22:42 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ int			ft_process(char *line, t_dlist *env)
 			free(line2);
 			line2 = NULL;
 		}
-	//	free_tab(str);
 	}
 	else
 	{

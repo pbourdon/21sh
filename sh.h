@@ -6,7 +6,7 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/22 17:27:56 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/09/11 14:14:36 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/09/11 17:42:33 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,9 @@ int			ft_paste(t_dlist *list, t_dlist *to_paste, int index, char *str);
 int			ft_historic_after(t_dlist *list, t_dlist *histo);
 int			ft_historic_previous(t_dlist *list, t_dlist *histo);
 void		ft_move_and_clean(t_dlist *list);
+
+int			ft_check_pipe(char *arg);
+char		*ft_new_arg(char *arg);
 
 int			ft_delete_on_shell(t_dlist *list);
 int			ft_clear_n_char(int n);
