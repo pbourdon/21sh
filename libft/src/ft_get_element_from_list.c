@@ -6,7 +6,7 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/15 18:39:12 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/09/06 12:19:29 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/09/11 15:47:10 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ char	*ft_get_element_from_list(t_dlist *liste, int pos)
 	int			i;
 	t_node		*courant;
 
+	if (pos <= 0)
+		return (NULL);
 	i = 1;
 	courant = liste->p_head;
 	while (i++ < pos && courant && i <= liste->length)

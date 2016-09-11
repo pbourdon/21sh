@@ -6,7 +6,7 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/11 13:38:24 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/09/11 14:29:05 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/09/11 15:50:18 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,18 @@ int		ft_historic_after(t_dlist *list, t_dlist *histo)
 	index = 0;
 	if (histo->pos < histo->length)
 		histo->pos = histo->pos + 1;
-	str = ft_get_element_from_list(histo, histo->pos);
-	while (str[index] != '\0')
+	if ((str = ft_get_element_from_list(histo, histo->pos)) != NULL)
 	{
-		str2[0] = str[index];
-		str2[1] = '\0';
-		ft_add_data(list, str2);
-		index++;
+		while (str[index] != '\0')
+		{
+			str2[0] = str[index];
+			str2[1] = '\0';
+			ft_add_data(list, str2);
+			index++;
+		}
+		ft_display_list(list);
+		free(str);
 	}
-	ft_display_list(list);
 	return (0);
 }
 
@@ -42,14 +45,17 @@ int		ft_historic_previous(t_dlist *list, t_dlist *histo)
 	index = 0;
 	if (histo->pos > 0)
 		histo->pos = histo->pos - 1;
-	str = ft_get_element_from_list(histo, histo->pos);
-	while (str[index] != '\0')
+	if ((str = ft_get_element_from_list(histo, histo->pos)) != NULL)
 	{
-		str2[0] = str[index];
-		str2[1] = '\0';
-		ft_add_data(list, str2);
-		index++;
+		while (str[index] != '\0')
+		{
+			str2[0] = str[index];
+			str2[1] = '\0';
+			ft_add_data(list, str2);
+			index++;
+		}
+		ft_display_list(list);
+		free(str);
 	}
-	ft_display_list(list);
 	return (0);
 }

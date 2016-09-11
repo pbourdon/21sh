@@ -6,7 +6,7 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/11 14:03:10 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/09/11 15:35:44 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/09/11 15:58:38 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,4 +43,5 @@ void		ft_move_and_clean(t_dlist *list)
 		index2++;
 	}
 	ft_move_begin();
+	free(str);
 }

@@ -6,7 +6,7 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/01 16:27:59 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/09/11 15:35:51 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/09/11 15:52:59 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,10 +58,7 @@ int		ft_deal_input2(char *buffer, t_dlist *list, t_dlist *histo,
 	if (buffer[0] == 127) // delete button
 		return (ft_delete_on_shell(list));
 	else if (buffer[0] == 10) // enter button
-	{
-		histo->index2 = 0;
 		return (ft_finish_command(list, histo));
-	}
 	else if (ft_detect_end(buffer) == 1)
 		return (ft_move_end(list));
 	else if (ft_detect_home(buffer) == 1)

@@ -6,7 +6,7 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/31 14:08:26 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/09/11 14:07:29 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/09/11 15:55:27 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,11 +47,12 @@ int				ft_get_user_input(void)
 		if (ft_deal_input(buffer, list, histo, to_paste) == 1)
 		{
 			ft_putchar('\n');
-		//	if (list->length > 0)
-		//		ft_display_list(list);
-		//	ft_putchar('\n');
-		//	if (ft_process(ft_get_str_from_list(list), env) == 1)
-		//		return (1);
+			if (list->length > 0)
+				ft_display_list(list);
+			ft_putchar('\n');
+			if (ft_process(ft_get_str_from_list(list), env) == 1)
+				return (1);
+			ft_putchar('\n');
 			ft_delete_list(&list);
 			list = NULL;
 			list = dlist_new(list);
