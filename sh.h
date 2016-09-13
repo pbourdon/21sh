@@ -6,7 +6,7 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/22 17:27:56 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/09/11 17:42:33 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/09/13 16:04:05 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,9 +106,14 @@ char		**ft_separate_dot_coma(char **tab3, char *line, int total);
 int			ft_add_element(t_dlist *list, char *buffer);
 void		ft_move_down(t_dlist *list, int index2);
 
-int			ft_process(char *line, t_dlist *env);
+int			ft_process(char *line, t_dlist *env, t_dlist *histo);
+void		ft_run_history(char *arg, t_dlist *env, t_dlist *histo);
+int			ft_check_options_history(char *arg, char c, int index);
+void		ft_delete_list3(t_dlist **t_dlist);
+void		ft_get_history_from_file(t_dlist *list);
+void		ft_write_history_file(t_dlist *histo);
 
-t_dlist		*ft_choose(char *arg, t_dlist *list);
+t_dlist		*ft_choose(char *arg, t_dlist *list, t_dlist *histo);
 void		ft_show_prompt(void);
 char		*ft_last_dir(char *path);
 int			ft_run_cd(char *arg, t_dlist *line, char *tmp, char *tmp2);

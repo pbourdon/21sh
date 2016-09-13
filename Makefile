@@ -6,7 +6,7 @@
 #    By: pbourdon <pbourdon@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/07/04 13:03:16 by pbourdon          #+#    #+#              #
-#    Updated: 2016/09/11 17:43:36 by pbourdon         ###   ########.fr        #
+#    Updated: 2016/09/13 16:54:41 by pbourdon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -89,7 +89,10 @@ SRC =	main.c\
 		ft_move_and_clean.c\
 		ft_check_pipe.c\
 		ft_new_arg.c\
-
+		ft_history.c\
+		ft_check_options_history.c\
+		ft_get_history_from_file.c\
+		ft_write_history_file.c\
 
 OBJ = $(SRC:.c=.o)
 

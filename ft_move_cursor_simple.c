@@ -6,7 +6,7 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/31 14:35:11 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/09/11 16:26:31 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/09/12 17:46:59 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,6 @@ int			ft_right(t_dlist *list)
 	ioctl(0, TIOCGWINSZ, &sz);
 	if (list->pos < list->length && list->pos % sz.ws_col == 0 && list->pos > 0)
 	{
-		ft_putnbr(list->pos);
-		ft_putchar(' ');
-		ft_putnbr(sz.ws_col);
 		ft_move_begin();
 		ft_down(list);
 		list->pos = list->pos + 1;

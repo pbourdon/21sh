@@ -1,33 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_display_list.c                                  :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: pbourdon <pbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/07/08 15:13:06 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/09/12 18:13:22 by pbourdon         ###   ########.fr       */
+/*   Created: 2015/11/29 22:14:48 by pbourdon          #+#    #+#             */
+/*   Updated: 2016/09/13 17:37:20 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_display_list2(t_dlist *p_list)
+void	ft_putstr_fd2(char const *s, int fd)
 {
-	t_node		*p_temp;
+	int		a;
 
-	p_temp = p_list->p_head;
-	if (p_list != NULL)
+	a = 0;
+	while (s[a] != '\0')
 	{
-		while (p_temp != NULL)
-		{
-			if (p_temp->data != NULL)
-			{
-				ft_putstr(p_temp->data);
-				ft_putchar('\n');
-			}
-			p_temp = p_temp->p_next;
-		}
+		ft_putchar_fd(s[a], fd);
+		a++;
 	}
-	return (0);
+	ft_putchar_fd('\n', fd);
 }

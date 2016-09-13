@@ -6,13 +6,13 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/08 15:34:16 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/09/11 16:22:42 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/09/12 18:30:50 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sh.h"
 
-int			ft_process(char *line, t_dlist *env)
+int			ft_process(char *line, t_dlist *env, t_dlist *histo)
 {
 	int		total;
 	char	*line2;
@@ -27,7 +27,7 @@ int			ft_process(char *line, t_dlist *env)
 		while (compteur < total)
 		{
 			line2 = ft_delete_tab(str[compteur]);
-			env = ft_choose(line2, env);
+			env = ft_choose(line2, env, histo);
 			compteur++;
 			free(line2);
 			line2 = NULL;
@@ -36,7 +36,7 @@ int			ft_process(char *line, t_dlist *env)
 	else
 	{
 		line2 = ft_delete_tab(line);
-		env = ft_choose(line2, env);
+		env = ft_choose(line2, env, histo);
 		free(line2);
 	}
 	free(line);

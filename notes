@@ -1,14 +1,6 @@
 
-
-
-Probleme sur la gestion de plusieurs lignes + gerer les copies/collages en meme temps (le clear line se fait sur qu'une seule ligne du coup la ligne d'avant reste et c'est degueu)
-
-ft_right() deconne sur le dernier char de la colonne, il faut appuyer deux fois pour passer la ligne la premiere fois
-
-mettre une str, mettre des espaces au milieu, inserer des chars avant les espaces/lettres, elles vont sortirent du screen et ne pas s'afficher sur la ligne en dessous
-
-
-Faut continuer le dev sur termaps
+history : a chaque demarage du shell, remplir la liste histo avec le contenu du fichier .42sh_history
+Lorsque qu'on sort du programme (exit), on doit vider le fichier et le remplir avec la liste actuelle (comprenant les instructions de ce shell + les anciens)
 ////////////////////////////////////////////////////////////////////////////////////
 Impossible de faire sfit home sur certains endroits du texte, bizarre
 // Gerer le fait d'envoyer une variable vide via setenv
