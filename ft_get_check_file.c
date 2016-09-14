@@ -1,23 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_append_file_history.c                           :+:      :+:    :+:   */
+/*   ft_get_check_file.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/09/13 15:00:47 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/09/14 19:24:59 by pbourdon         ###   ########.fr       */
+/*   Created: 2016/09/14 19:27:14 by pbourdon          #+#    #+#             */
+/*   Updated: 2016/09/14 19:32:13 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sh.h"
 
-void		ft_get_history_from_file(t_dlist *histo, int fd, int index, int index2)
+void		ft_check_and_add_data(t_dlist *histo, char *total, int pos)
+{
+	if (ft_strcmp(ft_get_element_from_list(histo, pos), total) != 0)
+		ins_avant(histo, total, histo->p_head, pos);
+}
+
+void		ft_get_check_file(t_dlist *histo, int fd, int index, int index2)
 {
 	int		ret;
 	char	buf[11];
 	char	total[4096];
+	int		pos;
 
+	pos = 1;
 	if (fd == -1)
 		return;
 	while ((ret = read(fd, buf, 10)))
@@ -30,7 +38,7 @@ void		ft_get_history_from_file(t_dlist *histo, int fd, int index, int index2)
 			{
 				total[index] = '\0';
 				index = 0;
-				ft_add_data(histo, total);
+				ft_check_and_add_data(histo, total, pos);
 			}
 			else
 				index++;

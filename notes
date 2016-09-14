@@ -1,6 +1,7 @@
 
 history : a chaque demarage du shell, remplir la liste histo avec le contenu du fichier .42sh_history
 Lorsque qu'on sort du programme (exit), on doit vider le fichier et le remplir avec la liste actuelle (comprenant les instructions de ce shell + les anciens)
+
 ////////////////////////////////////////////////////////////////////////////////////
 Impossible de faire sfit home sur certains endroits du texte, bizarre
 // Gerer le fait d'envoyer une variable vide via setenv

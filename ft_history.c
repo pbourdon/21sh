@@ -6,7 +6,7 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/12 18:00:35 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/09/13 16:55:00 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/09/14 19:51:06 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,10 +53,21 @@ void		ft_run_history(char *arg, t_dlist *env, t_dlist *histo)
 	}
 	if (ft_check_options_history(arg, 'a', index) == 1)
 	{
-		ft_write_history_file(histo);
+		ft_write_history_file(histo, 0, ft_strjoin(ft_home(env), "/.42sh"));
+		index++;
+		while (arg[index] == ' ' || arg[index] == '\t' || arg[index] == '\r' ||
+				arg[index] == '\n')
+			index++;
+		if (arg[index] == '-')
+			index++;
 		// on mets tout dans la liste, quand on ferme on doit rajouter dans le fichier
 		// quand cette option est lance, il maj le fichier comme si on sortait maintenant du shell
-
+	}
+	if (ft_check_options_history(arg, 'n', index) == 1)
+	{
+		ft_get_check_file(histo, open(ft_strjoin(ft_home(env), "/.42sh"), O_RDONLY), 0, 0);
+		// on recupere les lignes d'historique du fichier, et on ajoute celles non lues
+		// cad celles ajoutees au fichier depuis l'ouverture du 42sh.
 	}
 
 }

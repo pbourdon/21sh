@@ -6,7 +6,7 @@
 #    By: pbourdon <pbourdon@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/07/04 13:03:16 by pbourdon          #+#    #+#              #
-#    Updated: 2016/09/13 16:54:41 by pbourdon         ###   ########.fr        #
+#    Updated: 2016/09/14 19:51:37 by pbourdon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -93,6 +93,7 @@ SRC =	main.c\
 		ft_check_options_history.c\
 		ft_get_history_from_file.c\
 		ft_write_history_file.c\
+		ft_get_check_file.c\
 
 OBJ = $(SRC:.c=.o)
 

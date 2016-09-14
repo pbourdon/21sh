@@ -6,7 +6,7 @@
 /*   By: pbourdon <pbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/04 17:45:28 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/09/12 18:14:18 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/09/14 19:16:43 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,7 @@ t_dlist		*ft_choose(char *arg, t_dlist *list, t_dlist *histo)
 	else if (ft_strncmp("exit", arg, 4) == 0 && ft_strlen(arg) == 4)
 	{
 		ft_delete_list(&list);
+		ft_write_history_file(histo, 1, ft_strjoin(ft_home(list), "/.42sh"));
 		return (list);
 	}
 	else if (ft_check_arg(arg + index, list, 0, ft_boucle(arg)) == 0)

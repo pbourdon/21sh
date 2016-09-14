@@ -6,7 +6,7 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/31 14:08:26 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/09/12 17:59:49 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/09/14 19:54:12 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ int				ft_get_user_input(void)
 	if (ft_list_size(env->p_head) == 0)
 		env = ft_cpy_env2(env);
 	ft_show_prompt();
+	ft_get_history_from_file(histo, open(ft_strjoin(ft_home(env), "/.42sh"), O_RDONLY), 0, 0);
 	while (42)
 	{
 		buffer = ft_bzero(buffer, 7);
