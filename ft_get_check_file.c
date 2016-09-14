@@ -6,7 +6,7 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/14 19:27:14 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/09/14 19:32:13 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/09/14 20:03:55 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,14 @@
 
 void		ft_check_and_add_data(t_dlist *histo, char *total, int pos)
 {
+	ft_putstr(total);
 	if (ft_strcmp(ft_get_element_from_list(histo, pos), total) != 0)
+	{
+		ft_putstr(" is added at ");
+		ft_putnbr(pos);
 		ins_avant(histo, total, histo->p_head, pos);
+	}
+	ft_putchar('\n');
 }
 
 void		ft_get_check_file(t_dlist *histo, int fd, int index, int index2)
@@ -25,6 +31,7 @@ void		ft_get_check_file(t_dlist *histo, int fd, int index, int index2)
 	char	total[4096];
 	int		pos;
 
+	ft_putstr(" on commence a analyser\n");
 	pos = 1;
 	if (fd == -1)
 		return;
@@ -39,6 +46,7 @@ void		ft_get_check_file(t_dlist *histo, int fd, int index, int index2)
 				total[index] = '\0';
 				index = 0;
 				ft_check_and_add_data(histo, total, pos);
+				pos++;
 			}
 			else
 				index++;
