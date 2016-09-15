@@ -1,0 +1,6 @@
+Tests unitaires a faire dans history.c pour tout re-tester apres implemantation dans son code
+
+Empecher l'enregistrement dans l'historique de trucs genre !! // !-1 etc =>>>  boucle infinie
+(notamment via les fonctions de l'historique qui permettent de rajouter des trucs dans le fichier historique ou dans la liste historique)
+
+Gerer les doubles commandes comprenant !!  ou tout autre commande du genre

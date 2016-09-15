@@ -6,7 +6,7 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/12 18:00:35 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/09/14 19:51:06 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/09/15 15:48:54 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ void		ft_run_history(char *arg, t_dlist *env, t_dlist *histo)
 	}
 	if (ft_check_options_history(arg, 'd', index) == 1)
 	{
+		//delete one element 
 		index++;
 		number = ft_atoi(arg + index);
 		ft_del_ele_list(histo, number, histo->p_head, 0);
@@ -53,6 +54,7 @@ void		ft_run_history(char *arg, t_dlist *env, t_dlist *histo)
 	}
 	if (ft_check_options_history(arg, 'a', index) == 1)
 	{
+		// a modifier, faudrait mettre un int new = 1 pour les commandes de ce bash actuel
 		ft_write_history_file(histo, 0, ft_strjoin(ft_home(env), "/.42sh"));
 		index++;
 		while (arg[index] == ' ' || arg[index] == '\t' || arg[index] == '\r' ||
@@ -66,8 +68,30 @@ void		ft_run_history(char *arg, t_dlist *env, t_dlist *histo)
 	if (ft_check_options_history(arg, 'n', index) == 1)
 	{
 		ft_get_check_file(histo, open(ft_strjoin(ft_home(env), "/.42sh"), O_RDONLY), 0, 0);
+		while (arg[index] == ' ' || arg[index] == '\t' || arg[index] == '\r' ||
+				arg[index] == '\n')
+			index++;
+		if (arg[index] == '-')
+			index++;
 		// on recupere les lignes d'historique du fichier, et on ajoute celles non lues
 		// cad celles ajoutees au fichier depuis l'ouverture du 42sh.
 	}
-
+	if (ft_check_options_history(arg, 'r', index) == 1)
+	{
+		// need to delete and then use ft_get_history_from_file
+	}
+	if (ft_check_options_history(arg, 'w', index) == 1)
+	{
+		ft_write_history_file(histo, 2, ft_strjoin(ft_home(env), "/.42sh"));
+		index++;
+		while (arg[index] == ' ' || arg[index] == '\t' || arg[index] == '\r' ||
+				arg[index] == '\n')
+			index++;
+		if (arg[index] == '-')
+			index++;
+	}
+	if (ft_check_options_history(arg, 's', index) == 1)
+	{
+		ft_add_data(histo, arg + index + 2);
+	}
 }

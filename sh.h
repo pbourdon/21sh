@@ -6,7 +6,7 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/22 17:27:56 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/09/14 19:35:05 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/09/15 15:38:20 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,6 +113,7 @@ void		ft_delete_list3(t_dlist **t_dlist);
 void		ft_get_history_from_file(t_dlist *list, int fd, int index, int index2);
 void		ft_write_history_file(t_dlist *histo, int index, char *home);
 void		ft_get_check_file(t_dlist *histo, int fd, int index, int index2);
+void		ft_exclamation(char *arg, t_dlist *list, t_dlist *histo);
 
 t_dlist		*ft_choose(char *arg, t_dlist *list, t_dlist *histo);
 void		ft_show_prompt(void);
