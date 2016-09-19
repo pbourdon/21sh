@@ -6,7 +6,7 @@
 /*   By: pbourdon <pbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/13 08:38:32 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/09/13 17:27:18 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/09/19 19:05:11 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,9 +109,10 @@ int					ft_putchar2(int c);
 char				*ft_get_element_from_list(t_dlist *list, int pos);
 char				*ft_get_str_from_list(t_dlist *list);
 int					ft_display_list2(t_dlist *list);
-int					ft_display_list3(t_dlist *list);
+void				ft_display_list3(t_dlist *list);
 int					ft_display_list4(t_dlist *list, int limit);
 int					ft_get_size_from_list(t_dlist *list);
 int					ft_atoi(const char *str);
+char				*ft_strstr(const char *arg, const char *arg2);
 
 #endif

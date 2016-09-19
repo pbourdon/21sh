@@ -6,20 +6,14 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/13 15:57:57 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/09/15 16:01:41 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/09/19 19:11:32 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sh.h"
 
-void	ft_write_history_file(t_dlist *histo, int index, char *home)
+void	ft_write_history_file(t_dlist *histo, int index, int fd, int pos)
 {
-	int		fd;
-	int		pos;
-
-	fd = open(home, O_RDWR | O_TRUNC | O_CREAT | O_APPEND, S_IRUSR
- | S_IWUSR);
-	pos = 1;
 	if (fd > 0)
 	{
 		while (pos < histo->length)

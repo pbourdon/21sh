@@ -10,10 +10,8 @@ A VERIFIER JUSTE AVANT PASSAGE DANS LE MIXER
 A chaque passage dans le mixer (ft_choose), check qu'il ne comprends pas de !. 
 Si la ligne en comprends un, le remplacer avec un ft_get_elemet_from_list 
 
-SAUF SI C'EST !#, auquel cas faut lui envoyer la ligne entiere via ft_exclamation_diez.c
+SAUF SI C'EST !#, auquel cas faut lui envoyer la ligne entiere
 
 revoir toutes les options de tous les builtins qu'on croit avoir fais, genre env -u / env -i
 
 voir la valeur de retour sur exit
-
-Rajouter dans l'historique une fois que la fonction est faite

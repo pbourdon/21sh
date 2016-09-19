@@ -1,38 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_display_list.c                                  :+:      :+:    :+:   */
+/*   ft_exclamation_diez.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/07/08 15:13:06 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/09/19 18:58:50 by pbourdon         ###   ########.fr       */
+/*   Created: 2016/09/19 15:28:41 by pbourdon          #+#    #+#             */
+/*   Updated: 2016/09/19 15:51:42 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "sh.h"
 
-void	ft_display_list3(t_dlist *p_list)
+char		*ft_exclamation_diez(char *str)
 {
-	t_node		*p_temp;
-	int			index;
+	int		index;
+	char	*tmp;
 
-	index = 0;
-	p_temp = p_list->p_head;
-	if (p_list != NULL)
+	tmp = malloc(sizeof(char) * ft_strlen(str));
+	while (str[index] != '\0')
 	{
-		while (p_temp != NULL)
+		if (str[index] == '!' && str[index + 1] == '#')
 		{
-			if (p_temp->data != NULL)
-			{
-				ft_putnbr(index);
-				ft_putchar(' ');
-				ft_putstr(p_temp->data);
-				ft_putchar('\n');
-				index++;
-			}
-			p_temp = p_temp->p_next;
+			tmp[index] = '\0';
+			return (tmp);
 		}
+		tmp[index] = str[index];
+		index++;
 	}
-	return;
+	return (NULL);
 }
