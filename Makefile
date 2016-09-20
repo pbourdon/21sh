@@ -6,7 +6,7 @@
 #    By: pbourdon <pbourdon@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/07/04 13:03:16 by pbourdon          #+#    #+#              #
-#    Updated: 2016/09/19 18:54:34 by pbourdon         ###   ########.fr        #
+#    Updated: 2016/09/20 14:20:38 by pbourdon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -96,6 +96,8 @@ SRC =	main.c\
 		ft_get_check_file.c\
 		ft_exclamation.c\
 		ft_exclamation6.c\
+		ft_run_function.c\
+		ft_run_unset.c\
 
 
 OBJ = $(SRC:.c=.o)

@@ -6,7 +6,7 @@
 /*   By: pbourdon <pbourdon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/04 17:45:28 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/09/19 17:19:20 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/09/20 14:25:05 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,11 +75,15 @@ t_dlist		*ft_choose(char *arg, t_dlist *list, t_dlist *histo)
 		ft_run_unsetenv(arg + 8, list);
 	else if (ft_strncmp("history", arg, 7) == 0)
 		ft_run_history(arg + 7, list, histo);
+	else if (ft_strncmp("function", arg, 8) == 0)
+		ft_run_function(arg, list, histo, 0);
+	else if (ft_strncmp("unset", arg, 5) == 0)
+		ft_run_unset(arg + 5, list, histo);
 	else if (ft_strncmp("!", arg, 1) == 0)
 		ft_exclamation(arg + 1, list, histo);
 	else if (ft_strncmp("exit", arg, 4) == 0 && ft_strlen(arg) == 4)
 	{
-		ft_write_history_file(histo, 1, ft_strjoin(ft_home(list), "/.42sh"));
+		ft_write_history_file(histo, open(ft_strjoin(ft_home(list), "/.42sh"), O_RDONLY), 0, 0);
 		ft_delete_list(&list);
 		return (list);
 	}

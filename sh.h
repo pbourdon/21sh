@@ -6,7 +6,7 @@
 /*   By: pbourdon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/22 17:27:56 by pbourdon          #+#    #+#             */
-/*   Updated: 2016/09/19 19:10:36 by pbourdon         ###   ########.fr       */
+/*   Updated: 2016/09/20 14:20:33 by pbourdon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,6 +115,8 @@ void		ft_write_history_file(t_dlist *histo, int index, int fd, int pos);
 void		ft_get_check_file(t_dlist *histo, int fd, int index, int index2);
 void		ft_exclamation(char *arg, t_dlist *list, t_dlist *histo);
 void		ft_exclamation6(char *arg, t_dlist *list, t_dlist *hist, int index);
+void		ft_run_function(char *arg, t_dlist *list, t_dlist *hiso, int index);
+void		ft_run_unset(char *arg, t_dlist *list, t_dlist *histo);
 
 t_dlist		*ft_choose(char *arg, t_dlist *list, t_dlist *histo);
 void		ft_show_prompt(void);
